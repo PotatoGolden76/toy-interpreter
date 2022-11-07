@@ -29,6 +29,6 @@ public class DeclarationStatement implements IStatement{
 
     @Override
     public String toString() {
-        return "> " + t.toString() + " " + id;
+        return t.toString() + " " + id;
     }
 }

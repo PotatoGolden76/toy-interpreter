@@ -47,4 +47,15 @@ public class Dictionary implements IDictionary<String, IValue> {
     public IValue remove(String key) {
         return this.internal.remove(key);
     }
+
+    @Override
+    public String toString() {
+        String s = "Symbols:\n";
+        Enumeration<String> e = this.internal.keys();
+        while (e.hasMoreElements()) {
+            String key = e.nextElement();
+            s = s.concat("[" + key + ", " + this.internal.get(key) +  "]\n");
+        }
+        return s;
+    }
 }

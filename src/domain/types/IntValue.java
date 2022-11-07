@@ -18,7 +18,7 @@ public class IntValue implements IValue{
 
     @Override
     public String toString() {
-        return "> " + this.n;
+        return Integer.toString(this.n);
     }
 
     @Override

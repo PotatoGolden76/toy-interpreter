@@ -11,6 +11,6 @@ public class NoOpStatement implements IStatement{
 
     @Override
     public String toString() {
-        return "> [NoOp]";
+        return "[NoOp]";
     }
 }

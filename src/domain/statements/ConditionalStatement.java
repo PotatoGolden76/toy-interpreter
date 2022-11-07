@@ -1,6 +1,6 @@
 package domain.statements;
 
-import domain.IExpression;
+import domain.expressions.IExpression;
 import domain.InterpreterException;
 import domain.ProgramState;
 import domain.types.BooleanType;
@@ -21,14 +21,14 @@ public class ConditionalStatement implements IStatement{
     public ProgramState execute(ProgramState state) throws InterpreterException {
         IValue value = e.evaluate(state.getSymbolTable());
 
-        if (!value.getType().equals(new BooleanType())) { //TODO: types
+        if (!value.getType().equals(new BooleanType())) {
             throw new InterpreterException("Expression " + e.toString() + " can not be resolved to boolean");
         }
 
         BooleanValue b = (BooleanValue) value;
         if (b.getValue()) {
             state.getStack().push(thenS);
-        } else { //TODO: types
+        } else {
             state.getStack().push(elseS);
         }
         return state;
@@ -36,6 +36,6 @@ public class ConditionalStatement implements IStatement{
 
     @Override
     public String toString() {
-        return "> if (" + this.e.toString() + ") then [ " + this.thenS.toString() + " ] else [ " + this.elseS.toString() + "]";
+        return "if (" + this.e.toString() + ") then [ " + this.thenS.toString() + " ] else [ " + this.elseS.toString() + "]";
     }
 }

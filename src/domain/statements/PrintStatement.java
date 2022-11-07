@@ -1,6 +1,6 @@
 package domain.statements;
 
-import domain.IExpression;
+import domain.expressions.IExpression;
 import domain.InterpreterException;
 import domain.ProgramState;
 
@@ -13,12 +13,13 @@ public class PrintStatement implements IStatement{
 
     @Override
     public ProgramState execute(ProgramState state) throws InterpreterException {
-        //TODO: implement
+        String s = this.e.evaluate(state.getSymbolTable()).toString();
+        state.getOutput().push(s);
         return state;
     }
 
     @Override
     public String toString() {
-        return "> print: " + this.e.toString();
+        return "print: " + this.e.toString();
     }
 }

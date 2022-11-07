@@ -16,4 +16,18 @@ public class Stack implements IStack<IStatement> {
     public IStatement pop() {
         return internal.pop();
     }
+
+    @Override
+    public boolean isEmpty() {
+        return this.internal.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        String s = "Execution Stack: ";
+        for(IStatement o : this.internal.stream().toList()) {
+            s = s.concat("\n> " + o.toString());
+        }
+        return s;
+    }
 }

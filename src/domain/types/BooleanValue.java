@@ -18,7 +18,7 @@ public class BooleanValue implements  IValue{
 
     @Override
     public String toString() {
-        return "> " + this.v;
+        return this.v ? "True" : "False";
     }
 
     @Override

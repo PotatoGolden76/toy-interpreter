@@ -1,6 +1,7 @@
 package domain.statements;
 
 import domain.*;
+import domain.expressions.IExpression;
 import domain.structures.IDictionary;
 import domain.structures.IStack;
 import domain.types.IType;
@@ -39,6 +40,6 @@ public class AssignStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "> " + this.id + " = " + this.e.toString();
+        return this.id + " = " + this.e.toString();
     }
 }

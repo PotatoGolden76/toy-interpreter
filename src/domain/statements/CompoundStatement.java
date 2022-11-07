@@ -1,12 +1,17 @@
 package domain.statements;
 
-import domain.IStack;
+import domain.structures.IStack;
 import domain.InterpreterException;
 import domain.ProgramState;
 
 public class CompoundStatement implements IStatement{
     IStatement first;
     IStatement second;
+
+    public CompoundStatement(IStatement first, IStatement second) {
+        this.first = first;
+        this.second = second;
+    }
 
     @Override
     public ProgramState execute(ProgramState state) throws InterpreterException {

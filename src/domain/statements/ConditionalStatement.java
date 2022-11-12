@@ -4,8 +4,8 @@ import domain.expressions.IExpression;
 import domain.InterpreterException;
 import domain.ProgramState;
 import domain.types.BooleanType;
-import domain.types.BooleanValue;
-import domain.types.IValue;
+import domain.values.BooleanValue;
+import domain.values.IValue;
 
 public class ConditionalStatement implements IStatement{
     IExpression e;

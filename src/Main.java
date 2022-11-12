@@ -6,10 +6,13 @@ import domain.expressions.VariableExpression;
 import domain.statements.*;
 import domain.structures.Stack;
 import domain.types.BooleanType;
-import domain.types.BooleanValue;
+import domain.types.StringType;
+import domain.values.BooleanValue;
 import domain.types.IntType;
-import domain.types.IntValue;
+import domain.values.IntValue;
+import domain.values.StringValue;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -27,6 +30,7 @@ public class Main {
         System.out.println("1. int v; v=2; Print(v)");
         System.out.println("2. int a; int b; a=2+3*5; b=a+1; Print(b)");
         System.out.println("3. bool a; int v; a=true; (If a Then v=2 Else v=3); Print(v)");
+        System.out.println("4. string varf; varf=\"test.in\"; openReadFile(varf); int varc; readFile(varf,varc); print(varc); readFile(varf,varc); print(varc); closeReadFile(varf)");
         option = scn.nextInt();
 
         System.out.println("Run step-by-step 1/0: ");
@@ -59,6 +63,23 @@ public class Main {
                                                     new VariableExpression("a"),
                                                     new AssignStatement("v", new ValueExpression(new IntValue(2))), new AssignStatement("v", new ValueExpression(new IntValue(3)))),
                                             new PrintStatement(new VariableExpression("v"))))));
+            case 4 -> s = new CompoundStatement(
+                    new DeclarationStatement("varf", new StringType()),
+                    new CompoundStatement(
+                            new AssignStatement("varf", new ValueExpression(new StringValue("test.in"))),
+                            new CompoundStatement(
+                                    new OpenReadFileStatement(new VariableExpression("varf")),
+                                    new CompoundStatement(
+                                            new DeclarationStatement("varc", new IntType()),
+                                            new CompoundStatement(
+                                                    new ReadFileStatement(new VariableExpression("varf"), "varc"),
+                                                    new CompoundStatement(
+                                                            new PrintStatement(new VariableExpression("varc")),
+                                                            new CompoundStatement(
+                                                                    new ReadFileStatement(new VariableExpression("varf"), "varc"),
+                                                                    new CompoundStatement(
+                                                                            new PrintStatement(new VariableExpression("varc")),
+                                                                            new CloseReadFileStatement(new VariableExpression("varf"))))))))));
             default -> {
                 System.out.println("Invalid options");
                 return;
@@ -66,11 +87,18 @@ public class Main {
         }
 
         program.push(s);
-        c = new Controller(program, steps == 1);
-        System.out.println("Initial State:\n"+c.getRepository().toString()+ "\n>>> EXECUTIN <<<\n");
+        scn.nextLine();
+        System.out.println("path of log file: ");
+        String log = scn.nextLine();
+        try {
+            c = new Controller(program, steps == 1, log);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Initial State:\n" + c.getRepository().toString() + "\n>>> EXECUTIN <<<\n");
         try {
             c.run();
-        } catch (InterpreterException e) {
+        } catch (InterpreterException | IOException e) {
             System.out.println(e.getMessage().toString());
         }
     }

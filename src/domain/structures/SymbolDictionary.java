@@ -1,10 +1,10 @@
 package domain.structures;
 
-import domain.types.IValue;
+import domain.values.IValue;
 
 import java.util.Enumeration;
 
-public class Dictionary implements IDictionary<String, IValue> {
+public class SymbolDictionary implements IDictionary<String, IValue> {
 
     final java.util.Hashtable<String, IValue> internal = new java.util.Hashtable<>();
 

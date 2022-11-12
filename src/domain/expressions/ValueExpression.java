@@ -1,8 +1,7 @@
 package domain.expressions;
 
-import domain.InterpreterException;
 import domain.structures.IDictionary;
-import domain.types.IValue;
+import domain.values.IValue;
 
 public class ValueExpression implements IExpression {
     IValue v;

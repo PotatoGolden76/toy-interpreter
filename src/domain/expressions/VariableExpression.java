@@ -1,7 +1,7 @@
 package domain.expressions;
 
 import domain.structures.IDictionary;
-import domain.types.IValue;
+import domain.values.IValue;
 
 public class VariableExpression implements IExpression{
     String id;

@@ -3,9 +3,8 @@ package domain.expressions;
 import domain.InterpreterException;
 import domain.structures.IDictionary;
 import domain.types.BooleanType;
-import domain.types.BooleanValue;
-import domain.types.IValue;
-import domain.types.IntType;
+import domain.values.BooleanValue;
+import domain.values.IValue;
 
 public class LogicExpression implements IExpression {
 

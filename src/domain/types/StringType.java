@@ -1,21 +1,22 @@
 package domain.types;
 
-import domain.values.BooleanValue;
 import domain.values.IValue;
+import domain.values.IntValue;
+import domain.values.StringValue;
 
-public class BooleanType implements  IType{
+public class StringType implements IType{
     @Override
     public boolean equals(IType type) {
-        return type instanceof BooleanType;
+        return type instanceof StringType;
     }
 
     @Override
     public IValue defaultValue() {
-        return new BooleanValue(false);
+        return new StringValue("");
     }
 
     @Override
     public String toString() {
-        return "boolean";
+        return "string";
     }
 }

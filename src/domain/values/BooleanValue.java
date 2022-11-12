@@ -1,6 +1,9 @@
-package domain.types;
+package domain.values;
 
-public class BooleanValue implements  IValue{
+import domain.types.BooleanType;
+import domain.types.IType;
+
+public class BooleanValue implements IValue {
     private final boolean v;
 
     public BooleanValue(boolean v) {

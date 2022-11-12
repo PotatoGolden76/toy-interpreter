@@ -2,9 +2,9 @@ package domain.expressions;
 
 import domain.InterpreterException;
 import domain.structures.IDictionary;
-import domain.types.IValue;
+import domain.values.IValue;
 import domain.types.IntType;
-import domain.types.IntValue;
+import domain.values.IntValue;
 
 public class ArithmeticExpression implements IExpression {
 

@@ -6,18 +6,19 @@ import domain.statements.IStatement;
 import domain.structures.Stack;
 import repository.Repository;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Controller {
     Repository r;
     boolean step = false;
 
-    public Controller(Stack initialStack, boolean step) {
-        this.r = new Repository(new ProgramState(initialStack));
+    public Controller(Stack initialStack, boolean step, String log) throws IOException {
+        this.r = new Repository(new ProgramState(initialStack), log);
         this.step = step;
     }
 
-    public void run() throws InterpreterException {
+    public void run() throws InterpreterException, IOException {
         if (this.step) {
             this.stepByStep();
         } else {
@@ -25,13 +26,14 @@ public class Controller {
         }
     }
 
-    private void fullExecution() throws InterpreterException {
+    private void fullExecution() throws InterpreterException, IOException {
         while(!this.r.getState().getStack().isEmpty()) {
             stepByStep();
         }
     }
 
-    private void stepByStep() throws InterpreterException {
+    private void stepByStep() throws InterpreterException, IOException {
+
 
         Stack currentStack = (Stack) this.r.getState().getStack();
         if(currentStack.isEmpty())
@@ -42,6 +44,7 @@ public class Controller {
 
         System.out.println(this.r.toString());
 
+        this.r.logProgramState();
         if(this.step) {
             new Scanner(System.in).next();
             this.stepByStep();

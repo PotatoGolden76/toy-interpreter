@@ -1,6 +1,9 @@
-package domain.types;
+package domain.values;
 
-public class IntValue implements IValue{
+import domain.types.IType;
+import domain.types.IntType;
+
+public class IntValue implements IValue {
     private final int n;
 
     public IntValue(int val) {

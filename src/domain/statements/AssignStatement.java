@@ -5,7 +5,7 @@ import domain.expressions.IExpression;
 import domain.structures.IDictionary;
 import domain.structures.IStack;
 import domain.types.IType;
-import domain.types.IValue;
+import domain.values.IValue;
 
 public class AssignStatement implements IStatement {
 

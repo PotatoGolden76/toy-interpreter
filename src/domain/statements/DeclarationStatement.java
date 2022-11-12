@@ -3,7 +3,7 @@ package domain.statements;
 import domain.InterpreterException;
 import domain.ProgramState;
 import domain.types.IType;
-import domain.types.IValue;
+import domain.values.IValue;
 import domain.structures.IDictionary;
 
 public class DeclarationStatement implements IStatement{

@@ -1,5 +1,8 @@
 package domain.types;
 
+import domain.values.IValue;
+import domain.values.IntValue;
+
 public class IntType implements IType{
     @Override
     public boolean equals(IType type) {

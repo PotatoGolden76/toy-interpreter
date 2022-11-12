@@ -1,15 +1,14 @@
 package domain;
 
 import domain.statements.IStatement;
-import domain.structures.Dictionary;
-import domain.structures.IStack;
-import domain.structures.Queue;
-import domain.structures.Stack;
+import domain.structures.*;
 
 public class ProgramState {
     Stack executionStack;
     Queue output = new Queue();
-    Dictionary symbolTable = new Dictionary();
+    SymbolDictionary symbolTable = new SymbolDictionary();
+
+    FileDictionary fileTable = new FileDictionary();
 
     public ProgramState(Stack initialStack) {
         this.executionStack = initialStack;
@@ -19,8 +18,12 @@ public class ProgramState {
         return this.executionStack;
     }
 
-    public Dictionary getSymbolTable() {
+    public SymbolDictionary getSymbolTable() {
         return this.symbolTable;
+    }
+
+    public FileDictionary getFileTable() {
+        return fileTable;
     }
 
     public Queue getOutput() {
@@ -31,6 +34,7 @@ public class ProgramState {
     public String toString() {
         return ">>> Current State: \n" + executionStack.toString() +
                 "\n" + output.toString() +
-                "\n" + symbolTable.toString();
+                "\n" + symbolTable.toString() +
+                "\n" + fileTable.toString();
     }
 }

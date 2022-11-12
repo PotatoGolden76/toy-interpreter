@@ -2,7 +2,7 @@ package domain.expressions;
 
 import domain.InterpreterException;
 import domain.structures.IDictionary;
-import domain.types.IValue;
+import domain.values.IValue;
 
 public interface IExpression {
 

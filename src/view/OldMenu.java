@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+import domain.exceptions.ExpressionException;
 import domain.exceptions.InterpreterException;
 import domain.expressions.ArithmeticExpression;
 import domain.expressions.ValueExpression;
@@ -81,7 +82,7 @@ public class OldMenu {
                                                                     new ReadFileStatement(new VariableExpression("varf"), "varc"),
                                                                     new CompoundStatement(
                                                                             new PrintStatement(new VariableExpression("varc")),
-                                                                            new CloseReadFileStatement(new VariableExpression("varf"))))))))));
+                                                                            new CloseFileStatement(new VariableExpression("varf"))))))))));
             default -> {
                 System.out.println("Invalid options");
                 return;
@@ -100,7 +101,7 @@ public class OldMenu {
         System.out.println("Initial State:\n" + c.getRepository().toString() + "\n>>> EXECUTING <<<\n");
         try {
             c.run();
-        } catch (InterpreterException | IOException e) {
+        } catch (InterpreterException | IOException | ExpressionException e) {
             System.out.println(e.getMessage());
         }
     }

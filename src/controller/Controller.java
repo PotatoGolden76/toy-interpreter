@@ -1,5 +1,6 @@
 package controller;
 
+import domain.exceptions.ExpressionException;
 import domain.exceptions.InterpreterException;
 import domain.ProgramState;
 import domain.exceptions.StatementException;
@@ -20,7 +21,7 @@ public class Controller {
         this.step = step;
     }
 
-    public void run() throws InterpreterException, IOException {
+    public void run() throws InterpreterException, IOException, ExpressionException {
         if (this.step) {
             this.stepByStep();
         } else {
@@ -28,13 +29,13 @@ public class Controller {
         }
     }
 
-    private void fullExecution() throws InterpreterException, IOException {
+    private void fullExecution() throws InterpreterException, IOException, ExpressionException {
         while(!this.r.getState().getStack().isEmpty()) {
             stepByStep();
         }
     }
 
-    private void stepByStep() throws InterpreterException, IOException {
+    private void stepByStep() throws InterpreterException, IOException, ExpressionException {
 
 
         Stack currentStack = (Stack) this.r.getState().getStack();

@@ -7,11 +7,11 @@ import domain.values.StringValue;
 
 import java.io.IOException;
 
-public class CloseReadFileStatement implements IStatement {
+public class CloseFileStatement implements IStatement {
 
     final VariableExpression e;
 
-    public CloseReadFileStatement(VariableExpression varf) {
+    public CloseFileStatement(VariableExpression varf) {
         this.e = varf;
     }
 

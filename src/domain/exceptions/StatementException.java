@@ -1,6 +1,6 @@
 package domain.exceptions;
 
-public class StatementException extends InterpreterException {
+public class StatementException extends Exception {
     public StatementException(String s) {
         super(s);
     }

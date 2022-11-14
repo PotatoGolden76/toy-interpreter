@@ -59,6 +59,6 @@ public class Programs {
                                                                 new ReadFileStatement(new VariableExpression("varf"), "varc"),
                                                                 new CompoundStatement(
                                                                         new PrintStatement(new VariableExpression("varc")),
-                                                                        new CloseReadFileStatement(new VariableExpression("varf"))))))))));
+                                                                        new CloseFileStatement(new VariableExpression("varf"))))))))));
     }
 }

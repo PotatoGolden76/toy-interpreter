@@ -4,7 +4,7 @@ import domain.structures.IDictionary;
 import domain.values.IValue;
 
 public class VariableExpression implements IExpression{
-    String id;
+    final String id;
 
     public VariableExpression(String variable) {
         this.id = variable;

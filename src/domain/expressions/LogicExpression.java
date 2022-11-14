@@ -1,15 +1,18 @@
 package domain.expressions;
 
-import domain.InterpreterException;
+import domain.exceptions.ExpressionException;
+import domain.exceptions.ValueException;
 import domain.structures.IDictionary;
 import domain.types.BooleanType;
 import domain.values.BooleanValue;
 import domain.values.IValue;
 
+@SuppressWarnings("unused")
 public class LogicExpression implements IExpression {
 
-    IExpression e1, e2;
-    int operator;
+    final IExpression e1;
+    final IExpression e2;
+    final int operator;
 
     public LogicExpression(IExpression e1, IExpression e2, int operator) {
         this.e1 = e1;
@@ -18,15 +21,15 @@ public class LogicExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(IDictionary<String, IValue> symbolTable) throws InterpreterException {
+    public IValue evaluate(IDictionary<String, IValue> symbolTable) throws ExpressionException, ValueException {
         IValue v1 = this.e1.evaluate(symbolTable);
         IValue v2 = this.e2.evaluate(symbolTable);
 
-        if (!v1.getType().equals(new BooleanType())) {
-            throw new InterpreterException("Operand " + v1 + " is not an integer.");
+        if (v1.getType().equals(new BooleanType())) {
+            throw new ExpressionException("Operand " + v1 + " is not an integer.");
         }
-        if (!v2.getType().equals(new BooleanType())) {
-            throw new InterpreterException("Operand " + v2 + " is not an integer.");
+        if (v2.getType().equals(new BooleanType())) {
+            throw new ExpressionException("Operand " + v2 + " is not an integer.");
         }
 
         BooleanValue b1 = (BooleanValue) v1;

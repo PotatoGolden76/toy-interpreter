@@ -40,8 +40,8 @@ public class FileDictionary implements IDictionary<StringValue, BufferedReader> 
     }
 
     @Override
-    public BufferedReader put(StringValue key, BufferedReader value) {
-        return this.internal.put(key, value);
+    public void put(StringValue key, BufferedReader value) {
+        this.internal.put(key, value);
     }
 
     @Override

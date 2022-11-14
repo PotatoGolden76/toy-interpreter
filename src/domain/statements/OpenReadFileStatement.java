@@ -1,32 +1,34 @@
 package domain.statements;
 
-import domain.InterpreterException;
+import domain.exceptions.ExpressionException;
 import domain.ProgramState;
+import domain.exceptions.StatementException;
+import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
 import domain.types.StringType;
 import domain.values.IValue;
 import domain.values.StringValue;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class OpenReadFileStatement implements IStatement{
-    IExpression e;
+    final IExpression e;
 
     public OpenReadFileStatement(IExpression e) {
         this.e = e;
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws InterpreterException, FileNotFoundException {
+    public ProgramState execute(ProgramState state) throws StatementException, IOException, ValueException, ExpressionException {
         IValue v = this.e.evaluate(state.getSymbolTable());
 
-        if(!v.getType().equals(new StringType())) {
-            throw new InterpreterException("File name not a StringValue");
+        if(v.getType().equals(new StringType())) {
+            throw new StatementException("File name not a StringValue");
         }
         if(state.getFileTable().isDefined((StringValue) v)) {
-            throw new InterpreterException("File already open");
+            throw new StatementException("File already open");
         }
 
         state.getFileTable().put((StringValue) v, new BufferedReader(new FileReader(((StringValue) v).getValue())));

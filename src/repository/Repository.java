@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 public class Repository {
 
     ProgramState state;
-    String logFilePath;
+    final String logFilePath;
     PrintWriter logFile;
 
     public Repository(ProgramState state, String log) throws IOException {

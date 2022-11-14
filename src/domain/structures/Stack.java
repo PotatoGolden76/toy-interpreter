@@ -6,7 +6,16 @@ import domain.structures.IStack;
 
 public class Stack implements IStack<IStatement> {
 
-    final java.util.Stack<IStatement> internal = new java.util.Stack<>();
+    final java.util.Stack<IStatement> internal;
+
+    public Stack() {
+        this.internal = new java.util.Stack<>();
+    }
+    public Stack(IStatement start) {
+        this.internal = new java.util.Stack<>();
+        this.push(start);
+    }
+
     @Override
     public void push(IStatement o) {
         internal.push(o);

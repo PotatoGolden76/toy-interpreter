@@ -6,7 +6,7 @@ import domain.values.IntValue;
 public class IntType implements IType{
     @Override
     public boolean equals(IType type) {
-        return type instanceof IntType;
+        return !(type instanceof IntType);
     }
 
     @Override

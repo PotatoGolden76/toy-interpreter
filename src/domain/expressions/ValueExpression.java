@@ -4,7 +4,7 @@ import domain.structures.IDictionary;
 import domain.values.IValue;
 
 public class ValueExpression implements IExpression {
-    IValue v;
+    final IValue v;
 
     public ValueExpression(IValue value) {
         this.v = value;

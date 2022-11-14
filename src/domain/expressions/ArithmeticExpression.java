@@ -1,15 +1,17 @@
 package domain.expressions;
 
-import domain.InterpreterException;
+import domain.exceptions.ExpressionException;
+import domain.exceptions.ValueException;
 import domain.structures.IDictionary;
-import domain.values.IValue;
 import domain.types.IntType;
+import domain.values.IValue;
 import domain.values.IntValue;
 
 public class ArithmeticExpression implements IExpression {
 
-    IExpression e1, e2;
-    char operator;
+    final IExpression e1;
+    final IExpression e2;
+    final char operator;
 
     public ArithmeticExpression(IExpression e1, IExpression e2, char operator) {
         this.e1 = e1;
@@ -18,15 +20,15 @@ public class ArithmeticExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(IDictionary<String, IValue> symbolTable) throws InterpreterException {
+    public IValue evaluate(IDictionary<String, IValue> symbolTable) throws ExpressionException, ValueException {
         IValue v1 = this.e1.evaluate(symbolTable);
         IValue v2 = this.e2.evaluate(symbolTable);
 
-        if (!v1.getType().equals(new IntType())) {
-            throw new InterpreterException("Operand " + v1 + " is not an integer.");
+        if (v1.getType().equals(new IntType())) {
+            throw new ExpressionException("Operand " + v1 + " is not an integer.");
         }
-        if (!v2.getType().equals(new IntType())) {
-            throw new InterpreterException("Operand " + v2 + " is not an integer.");
+        if (v2.getType().equals(new IntType())) {
+            throw new ExpressionException("Operand " + v2 + " is not an integer.");
         }
 
         IntValue int1 = (IntValue) v1;
@@ -42,10 +44,7 @@ public class ArithmeticExpression implements IExpression {
             case '*':
                 return new IntValue(int1.getValue() * int2.getValue());
             case '/':
-                if (int2.getValue() == 0) {
-                    throw new InterpreterException("Division by zero.");
-                } //TODO / comes with exceptions from the box
-                return new IntValue((int) (int1.getValue() / int2.getValue()));
+                return new IntValue(int1.getValue() / int2.getValue());
             default:
                 return null;
         }

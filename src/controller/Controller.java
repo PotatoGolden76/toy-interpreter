@@ -1,7 +1,9 @@
 package controller;
 
-import domain.InterpreterException;
+import domain.exceptions.InterpreterException;
 import domain.ProgramState;
+import domain.exceptions.StatementException;
+import domain.exceptions.ValueException;
 import domain.statements.IStatement;
 import domain.structures.Stack;
 import repository.Repository;
@@ -11,7 +13,7 @@ import java.util.Scanner;
 
 public class Controller {
     Repository r;
-    boolean step = false;
+    boolean step;
 
     public Controller(Stack initialStack, boolean step, String log) throws IOException {
         this.r = new Repository(new ProgramState(initialStack), log);
@@ -40,7 +42,11 @@ public class Controller {
             throw new InterpreterException("Nothing to execute.");
 
         IStatement currentInstruction = currentStack.pop();
-        this.r.setState(currentInstruction.execute(this.r.getState()));
+        try {
+            this.r.setState(currentInstruction.execute(this.r.getState()));
+        } catch (StatementException | ValueException e) {
+            throw new RuntimeException(e);
+        }
 
         System.out.println(this.r.toString());
 

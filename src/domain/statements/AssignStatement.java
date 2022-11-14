@@ -1,6 +1,9 @@
 package domain.statements;
 
 import domain.*;
+import domain.exceptions.ExpressionException;
+import domain.exceptions.StatementException;
+import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
 import domain.structures.IDictionary;
 import domain.structures.IStack;
@@ -9,8 +12,8 @@ import domain.values.IValue;
 
 public class AssignStatement implements IStatement {
 
-    String id;
-    IExpression e;
+    final String id;
+    final IExpression e;
 
     public AssignStatement(String v, IExpression e) {
         this.id = v;
@@ -18,7 +21,7 @@ public class AssignStatement implements IStatement {
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws InterpreterException {
+    public ProgramState execute(ProgramState state) throws StatementException, ValueException, ExpressionException {
         IStack<IStatement> stack = state.getStack();
         IDictionary<String, IValue> symbols = state.getSymbolTable();
 
@@ -26,11 +29,11 @@ public class AssignStatement implements IStatement {
         IType eType = symbols.get(id).getType();
 
 
-        if (!eValue.getType().equals(eType)) {
-            throw new InterpreterException("Declared type " + id +" and type " + eType + " do not match.");
+        if (eValue.getType().equals(eType)) {
+            throw new StatementException("Declared type " + id +" and type " + eType + " do not match.");
         }
         if (!symbols.isDefined(id)) {
-            throw new InterpreterException("Variable " + id + " was not declared before.");
+            throw new StatementException("Variable " + id + " was not declared before.");
         }
 
         symbols.put(id, eValue);

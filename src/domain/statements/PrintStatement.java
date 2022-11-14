@@ -1,18 +1,19 @@
 package domain.statements;
 
+import domain.exceptions.ExpressionException;
+import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
-import domain.InterpreterException;
 import domain.ProgramState;
 
 public class PrintStatement implements IStatement{
-    IExpression e;
+    final IExpression e;
 
     public PrintStatement(IExpression e) {
         this.e = e;
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws InterpreterException {
+    public ProgramState execute(ProgramState state) throws ValueException, ExpressionException {
         String s = this.e.evaluate(state.getSymbolTable()).toString();
         state.getOutput().push(s);
         return state;

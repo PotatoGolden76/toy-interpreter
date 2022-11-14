@@ -1,10 +1,8 @@
 package domain.values;
 
+import domain.exceptions.ValueException;
 import domain.types.IType;
-import domain.types.IntType;
 import domain.types.StringType;
-
-import java.util.Objects;
 
 public class StringValue implements IValue {
     private final String n;
@@ -18,6 +16,42 @@ public class StringValue implements IValue {
         return new StringType();
     }
 
+    @Override
+    public BooleanValue equals(IValue other) {
+        if (other instanceof StringValue) {
+            return new BooleanValue(this.n.equals(((StringValue) other).getValue()));
+        }
+        return new BooleanValue(false);
+    }
+
+    @Override
+    public BooleanValue greaterThan(IValue other) throws ValueException {
+        throw new ValueException(" > is not defined for string values.");
+    }
+
+    @Override
+    public BooleanValue lessThan(IValue other) throws ValueException {
+        throw new ValueException(" < is not defined for string values.");
+    }
+
+    @Override
+    public BooleanValue greaterThanOrEqual(IValue other) throws ValueException {
+        throw new ValueException(" >= is not defined for string values.");
+    }
+
+    @Override
+    public BooleanValue lessThanOrEqual(IValue other) throws ValueException {
+        throw new ValueException(" <= is not defined for string values.");
+    }
+
+    @Override
+    public BooleanValue notEqual(IValue other) {
+        if (other instanceof StringValue) {
+            return new BooleanValue(!this.n.equals(((StringValue) other).getValue()));
+        }
+        return new BooleanValue(false);
+    }
+
     public String getValue() {
         return this.n;
     }
@@ -27,11 +61,4 @@ public class StringValue implements IValue {
         return this.n;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        if (object instanceof StringValue) {
-            return Objects.equals(this.n, ((StringValue) object).getValue());
-        }
-        return false;
-    }
 }

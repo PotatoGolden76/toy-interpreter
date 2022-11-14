@@ -18,6 +18,6 @@ public class Queue implements IQueue<String>{
 
     @Override
     public String toString() {
-        return "Output: " + this.internal.stream().toList().toString();
+        return "Output: " + this.internal.stream().toList();
     }
 }

@@ -1,12 +1,11 @@
 package domain.statements;
 
 import domain.structures.IStack;
-import domain.InterpreterException;
 import domain.ProgramState;
 
 public class CompoundStatement implements IStatement{
-    IStatement first;
-    IStatement second;
+    final IStatement first;
+    final IStatement second;
 
     public CompoundStatement(IStatement first, IStatement second) {
         this.first = first;
@@ -14,7 +13,7 @@ public class CompoundStatement implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws InterpreterException {
+    public ProgramState execute(ProgramState state) {
         IStack<IStatement> stack = state.getStack();
         stack.push(this.second);
         stack.push(this.first);

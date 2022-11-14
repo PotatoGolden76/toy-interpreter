@@ -1,11 +1,10 @@
 package domain.statements;
 
-import domain.InterpreterException;
 import domain.ProgramState;
 
 public class NoOpStatement implements IStatement{
     @Override
-    public ProgramState execute(ProgramState state) throws InterpreterException {
+    public ProgramState execute(ProgramState state) {
         return state;
     }
 

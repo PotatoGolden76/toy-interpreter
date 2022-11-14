@@ -15,6 +15,55 @@ public class IntValue implements IValue {
         return new IntType();
     }
 
+    @Override
+    public BooleanValue greaterThan(IValue other) {
+        if (other instanceof IntValue) {
+            return new BooleanValue(this.n > ((IntValue) other).getValue());
+        }
+        return new BooleanValue(false);
+    }
+
+    @Override
+    public BooleanValue lessThan(IValue other) {
+        if (other instanceof IntValue) {
+            return new BooleanValue(this.n < ((IntValue) other).getValue());
+        }
+        return new BooleanValue(false);
+    }
+
+    @Override
+    public BooleanValue greaterThanOrEqual(IValue other) {
+        if (other instanceof IntValue) {
+            return new BooleanValue(this.n >= ((IntValue) other).getValue());
+        }
+        return new BooleanValue(false);
+    }
+
+    @Override
+    public BooleanValue lessThanOrEqual(IValue other) {
+        if (other instanceof IntValue) {
+            return new BooleanValue(this.n <= ((IntValue) other).getValue());
+        }
+        return new BooleanValue(false);
+    }
+
+
+    @Override
+    public BooleanValue equals(IValue object) {
+        if (object instanceof IntValue) {
+            return new BooleanValue(this.n == ((IntValue) object).getValue());
+        }
+        return new BooleanValue(false);
+    }
+
+    @Override
+    public BooleanValue notEqual(IValue other) {
+        if (other instanceof IntValue) {
+            return new BooleanValue(this.n != ((IntValue) other).getValue());
+        }
+        return new BooleanValue(false);
+    }
+
     public int getValue() {
         return this.n;
     }
@@ -24,11 +73,4 @@ public class IntValue implements IValue {
         return Integer.toString(this.n);
     }
 
-    @Override
-    public boolean equals(Object object) {
-        if (object instanceof IntValue) {
-            return this.n == ((IntValue)object).getValue();
-        }
-        return false;
-    }
 }

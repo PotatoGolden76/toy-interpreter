@@ -4,11 +4,11 @@ import domain.statements.IStatement;
 import domain.structures.*;
 
 public class ProgramState {
-    Stack executionStack;
-    Queue output = new Queue();
-    SymbolDictionary symbolTable = new SymbolDictionary();
+    final Stack executionStack;
+    final Queue output = new Queue();
+    final SymbolDictionary symbolTable = new SymbolDictionary();
 
-    FileDictionary fileTable = new FileDictionary();
+    final FileDictionary fileTable = new FileDictionary();
 
     public ProgramState(Stack initialStack) {
         this.executionStack = initialStack;
@@ -33,8 +33,8 @@ public class ProgramState {
     @Override
     public String toString() {
         return ">>> Current State: \n" + executionStack.toString() +
-                "\n" + output.toString() +
-                "\n" + symbolTable.toString() +
-                "\n" + fileTable.toString();
+                "\n" + output +
+                "\n" + symbolTable +
+                "\n" + fileTable;
     }
 }

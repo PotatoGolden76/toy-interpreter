@@ -1,7 +1,7 @@
 package domain.statements;
 
-import domain.InterpreterException;
 import domain.ProgramState;
+import domain.exceptions.StatementException;
 import domain.expressions.VariableExpression;
 import domain.values.StringValue;
 
@@ -9,17 +9,17 @@ import java.io.IOException;
 
 public class CloseReadFileStatement implements IStatement {
 
-    VariableExpression e;
+    final VariableExpression e;
 
     public CloseReadFileStatement(VariableExpression varf) {
         this.e = varf;
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws InterpreterException, IOException {
+    public ProgramState execute(ProgramState state) throws StatementException, IOException {
         StringValue v = (StringValue) this.e.evaluate(state.getSymbolTable());
         if(!state.getFileTable().isDefined(v)) {
-            throw new InterpreterException("File not open");
+            throw new StatementException("File not open");
         }
         state.getFileTable().get(v).close();
         state.getFileTable().remove(v);

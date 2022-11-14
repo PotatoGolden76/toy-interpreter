@@ -39,8 +39,8 @@ public class SymbolDictionary implements IDictionary<String, IValue> {
     }
 
     @Override
-    public IValue put(String key, IValue value) {
-        return this.internal.put(key, value);
+    public void put(String key, IValue value) {
+        this.internal.put(key, value);
     }
 
     @Override

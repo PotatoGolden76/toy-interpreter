@@ -1,7 +1,9 @@
 package domain.statements;
 
-import domain.InterpreterException;
+import domain.exceptions.ExpressionException;
 import domain.ProgramState;
+import domain.exceptions.StatementException;
+import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
 import domain.types.IntType;
 import domain.types.StringType;
@@ -10,13 +12,11 @@ import domain.values.IntValue;
 import domain.values.StringValue;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 public class ReadFileStatement implements IStatement{
-    IExpression e;
-    String id;
+    final IExpression e;
+    final String id;
 
     public ReadFileStatement(IExpression e, String id) {
         this.e = e;
@@ -24,21 +24,21 @@ public class ReadFileStatement implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws InterpreterException, IOException {
+    public ProgramState execute(ProgramState state) throws StatementException, IOException, ValueException, ExpressionException {
         IValue v = this.e.evaluate(state.getSymbolTable());
 
         if(!state.getSymbolTable().isDefined(this.id)) {
-            throw new InterpreterException("Variable " + id + " not defined");
+            throw new StatementException("Variable " + id + " not defined");
         }
-        if(!state.getSymbolTable().get(this.id).getType().equals(new IntType())) {
-            throw new InterpreterException("Variable " + id + " not a IntValue");
+        if(state.getSymbolTable().get(this.id).getType().equals(new IntType())) {
+            throw new StatementException("Variable " + id + " not a IntValue");
         }
-        if(!v.getType().equals(new StringType())) {
-            throw new InterpreterException("File name not a StringValue");
+        if(v.getType().equals(new StringType())) {
+            throw new StatementException("File name not a StringValue");
         }
 
         if(!state.getFileTable().isDefined((StringValue) v)) {
-            throw new InterpreterException("File not open");
+            throw new StatementException("File not open");
         }
 
         BufferedReader br = state.getFileTable().get((StringValue) v);

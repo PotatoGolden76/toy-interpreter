@@ -25,7 +25,7 @@ public class AssignStatement implements IStatement {
         IStack<IStatement> stack = state.getStack();
         IDictionary<String, IValue> symbols = state.getSymbolTable();
 
-        IValue eValue = e.evaluate(symbols);
+        IValue eValue = e.evaluate(symbols, state.getHeap());
         IType eType = symbols.get(id).getType();
 
 

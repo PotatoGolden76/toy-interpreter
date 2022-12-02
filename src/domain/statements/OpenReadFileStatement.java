@@ -22,7 +22,7 @@ public class OpenReadFileStatement implements IStatement{
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, IOException, ValueException, ExpressionException {
-        IValue v = this.e.evaluate(state.getSymbolTable());
+        IValue v = this.e.evaluate(state.getSymbolTable(), state.getHeap());
 
         if(v.getType().equals(new StringType())) {
             throw new StatementException("File name not a StringValue");

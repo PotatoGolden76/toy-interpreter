@@ -1,7 +1,9 @@
 package domain.expressions;
 
 import domain.exceptions.ExpressionException;
+import domain.exceptions.StatementException;
 import domain.exceptions.ValueException;
+import domain.structures.Heap;
 import domain.structures.IDictionary;
 import domain.values.IValue;
 
@@ -18,9 +20,9 @@ public class RelationalExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(IDictionary<String, IValue> symbolTable) throws ExpressionException, ValueException {
-        IValue leftValue = this.left.evaluate(symbolTable);
-        IValue rightValue = this.right.evaluate(symbolTable);
+    public IValue evaluate(IDictionary<String, IValue> symbolTable, Heap heap) throws ExpressionException, ValueException, StatementException {
+        IValue leftValue = this.left.evaluate(symbolTable, heap);
+        IValue rightValue = this.right.evaluate(symbolTable, heap);
 
         return switch (this.operator) {
             case "<" -> leftValue.lessThan(rightValue);

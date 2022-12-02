@@ -25,7 +25,7 @@ public class ReadFileStatement implements IStatement{
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, IOException, ValueException, ExpressionException {
-        IValue v = this.e.evaluate(state.getSymbolTable());
+        IValue v = this.e.evaluate(state.getSymbolTable(), state.getHeap());
 
         if(!state.getSymbolTable().isDefined(this.id)) {
             throw new StatementException("Variable " + id + " not defined");

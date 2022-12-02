@@ -1,6 +1,7 @@
 package domain.statements;
 
 import domain.exceptions.ExpressionException;
+import domain.exceptions.StatementException;
 import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
 import domain.ProgramState;
@@ -13,8 +14,8 @@ public class PrintStatement implements IStatement{
     }
 
     @Override
-    public ProgramState execute(ProgramState state) throws ValueException, ExpressionException {
-        String s = this.e.evaluate(state.getSymbolTable()).toString();
+    public ProgramState execute(ProgramState state) throws ValueException, ExpressionException, StatementException {
+        String s = this.e.evaluate(state.getSymbolTable(), state.getHeap()).toString();
         state.getOutput().push(s);
         return state;
     }

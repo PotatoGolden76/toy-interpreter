@@ -10,6 +10,8 @@ public class ProgramState {
 
     final FileDictionary fileTable = new FileDictionary();
 
+    final Heap heap = new Heap();
+
     public ProgramState(Stack initialStack) {
         this.executionStack = initialStack;
     }
@@ -26,6 +28,10 @@ public class ProgramState {
         return fileTable;
     }
 
+    public Heap getHeap() {
+        return heap;
+    }
+
     public Queue getOutput() {
         return output;
     }
@@ -35,6 +41,7 @@ public class ProgramState {
         return ">>> Current State: \n" + executionStack.toString() +
                 "\n" + output +
                 "\n" + symbolTable +
-                "\n" + fileTable;
+                "\n" + fileTable +
+                "\n" + heap;
     }
 }

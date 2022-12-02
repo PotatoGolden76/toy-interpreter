@@ -17,7 +17,7 @@ public class CloseFileStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, IOException {
-        StringValue v = (StringValue) this.e.evaluate(state.getSymbolTable());
+        StringValue v = (StringValue) this.e.evaluate(state.getSymbolTable(), state.getHeap());
         if(!state.getFileTable().isDefined(v)) {
             throw new StatementException("File not open");
         }

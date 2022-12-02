@@ -22,7 +22,7 @@ public class ConditionalStatement implements IStatement{
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, ValueException, ExpressionException {
-        IValue value = e.evaluate(state.getSymbolTable());
+        IValue value = e.evaluate(state.getSymbolTable(), state.getHeap());
 
         if (value.getType().equals(new BooleanType())) {
             throw new StatementException("Expression " + e + " can not be resolved to boolean");

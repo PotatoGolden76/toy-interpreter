@@ -1,5 +1,6 @@
 package domain.expressions;
 
+import domain.structures.Heap;
 import domain.structures.IDictionary;
 import domain.values.IValue;
 
@@ -11,7 +12,7 @@ public class ValueExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(IDictionary<String, IValue> symbolTable) {
+    public IValue evaluate(IDictionary<String, IValue> symbolTable, Heap heap) {
         return this.v;
     }
 

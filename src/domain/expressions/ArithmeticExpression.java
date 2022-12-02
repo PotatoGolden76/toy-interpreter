@@ -1,7 +1,9 @@
 package domain.expressions;
 
 import domain.exceptions.ExpressionException;
+import domain.exceptions.StatementException;
 import domain.exceptions.ValueException;
+import domain.structures.Heap;
 import domain.structures.IDictionary;
 import domain.types.IntType;
 import domain.values.IValue;
@@ -20,9 +22,9 @@ public class ArithmeticExpression implements IExpression {
     }
 
     @Override
-    public IValue evaluate(IDictionary<String, IValue> symbolTable) throws ExpressionException, ValueException {
-        IValue v1 = this.e1.evaluate(symbolTable);
-        IValue v2 = this.e2.evaluate(symbolTable);
+    public IValue evaluate(IDictionary<String, IValue> symbolTable, Heap heap) throws ExpressionException, ValueException, StatementException {
+        IValue v1 = this.e1.evaluate(symbolTable, heap);
+        IValue v2 = this.e2.evaluate(symbolTable, heap);
 
         if (v1.getType().equals(new IntType())) {
             throw new ExpressionException("Operand " + v1 + " is not an integer.");

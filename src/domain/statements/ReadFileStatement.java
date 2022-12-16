@@ -48,7 +48,7 @@ public class ReadFileStatement implements IStatement{
         } else {
             state.getSymbolTable().put(this.id, new IntValue(Integer.parseInt(line)));
         }
-        return state;
+        return null;
     }
 
     @Override

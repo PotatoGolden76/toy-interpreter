@@ -1,5 +1,4 @@
 import controller.Controller;
-import domain.exceptions.InterpreterException;
 import domain.structures.Stack;
 import view.TextMenu;
 import view.commands.ExitCommand;
@@ -11,9 +10,9 @@ import static view.Programs.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException, InterpreterException {
+    public static void main(String[] args) throws IOException {
         TextMenu menu = new TextMenu();
-        Controller c1, c2, c3, c4, c5, c6, c7, c8, c9;
+        Controller c1, c2, c3, c4, c5, c6, c7, c8, c9, c10;
 
         c1 = new Controller(new Stack(s1), false, "log1.txt");
         c2 = new Controller(new Stack(s2), false, "log2.txt");
@@ -24,8 +23,9 @@ public class Main {
         c7 = new Controller(new Stack(s7), false, "log7.txt");
         c8 = new Controller(new Stack(s8), false, "log8.txt");
         c9 = new Controller(new Stack(s9), false, "log9.txt");
+        c10 = new Controller(new Stack(s10), false, "log10.txt");
 
-        RunCommand r1, r2, r3, r4, r5, r6 ,r7, r8, r9;
+        RunCommand r1, r2, r3, r4, r5, r6 ,r7, r8, r9, r10;
 
         r1 = new RunCommand("1", "int v; v=2; Print(v)", c1);
         r2 = new RunCommand("2", "int a; int b; a=2+3*5; b=a+1; Print(b)", c2);
@@ -36,6 +36,7 @@ public class Main {
         r7 = new RunCommand("7", "Ref int v;new(v,20);print(rH(v));wH(v,30);print(rH(v)+5)", c7);
         r8 = new RunCommand("8", "Ref int v;new(v,20);Ref Ref int a; new(a,v); new(v,30);print(rH(rH(a)))", c8);
         r9 = new RunCommand("9", "int v; v=4; (while (v>0) print(v);v=v-1);print(v)", c9);
+        r10 = new RunCommand("10", "int v; Ref int a; v=10; new(a,22); fork(wH(a,30);v=32;print(v);print(rH(a)));print(v);print(rH(a))", c10);
 
         menu.addCommand(r1);
         menu.addCommand(r2);
@@ -46,6 +47,7 @@ public class Main {
         menu.addCommand(r7);
         menu.addCommand(r8);
         menu.addCommand(r9);
+        menu.addCommand(r10);
 
         menu.addCommand(new ExitCommand("0", "exit"));
 

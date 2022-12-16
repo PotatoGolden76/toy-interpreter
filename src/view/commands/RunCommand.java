@@ -14,7 +14,11 @@ public class RunCommand extends Command {
     public void execute() {
         try {
 //            System.out.println(this.controller.getRepository().toString());
-            this.controller.run();
+//            Controller copy = new Controller(this.controller);
+//            copy.run();
+
+            //TODO: clone does not work properly, file empty starting from second run
+            this.controller.clone().run();
         } catch (Exception e) {
             System.out.println(e.getMessage());
 //            System.err.println(e.toString());

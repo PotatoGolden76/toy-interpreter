@@ -24,7 +24,7 @@ public class DeclarationStatement implements IStatement{
         }
 
         symbols.put(id, t.defaultValue());
-        return state;
+        return null;
     }
 
     @Override

@@ -11,7 +11,7 @@ import domain.values.IntValue;
 import domain.values.StringValue;
 
 public class Programs {
-    public static IStatement s1, s2, s3, s4, s5, s6, s7, s8, s9;
+    public static IStatement s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
 
     static {
         s1 = new CompoundStatement(
@@ -121,5 +121,27 @@ public class Programs {
                                                 new PrintStatement(new VariableExpression("v")),
                                                 new AssignStatement("v", new ArithmeticExpression(new VariableExpression("v"), new ValueExpression(new IntValue(1)), '-')))),
                                 new PrintStatement(new VariableExpression("v")))));
+
+        //int v; Ref int a; v=10; new(a,22); fork(wH(a,30);v=32;print(v);print(rH(a)));print(v);print(rH(a))
+        s10 = new CompoundStatement(
+                new DeclarationStatement("v", new IntType()),
+                new CompoundStatement(
+                        new DeclarationStatement("a", new ReferenceType(new IntType())),
+                        new CompoundStatement(
+                                new AssignStatement("v", new ValueExpression(new IntValue(10))),
+                                new CompoundStatement(
+                                        new NewStatement("a", new ValueExpression(new IntValue(22))),
+                                        new CompoundStatement(
+                                                new ForkStatement(
+                                                        new CompoundStatement(
+                                                                new WriteHeapStatement("a", new ValueExpression(new IntValue(30))),
+                                                                new CompoundStatement(
+                                                                        new AssignStatement("v", new ValueExpression(new IntValue(32))),
+                                                                        new CompoundStatement(
+                                                                                new PrintStatement(new VariableExpression("v")),
+                                                                                new PrintStatement(new ReadHeapExpression(new VariableExpression("a"))))))),
+                                                new CompoundStatement(
+                                                        new PrintStatement(new VariableExpression("v")),
+                                                        new PrintStatement(new ReadHeapExpression(new VariableExpression("a")))))))));
     }
 }

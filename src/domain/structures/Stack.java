@@ -16,6 +16,11 @@ public class Stack implements IStack<IStatement> {
         this.push(start);
     }
 
+    public Stack(Stack stack) {
+        this.internal = new java.util.Stack<>();
+        this.internal.addAll(stack.internal);
+    }
+
     @Override
     public void push(IStatement o) {
         internal.push(o);

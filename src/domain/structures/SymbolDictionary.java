@@ -48,6 +48,14 @@ public class SymbolDictionary implements IDictionary<String, IValue> {
         return this.internal.remove(key);
     }
 
+    public SymbolDictionary clone() {
+        SymbolDictionary clone = new SymbolDictionary();
+        for (String key : this.internal.keySet()) {
+            clone.put(key, this.internal.get(key));
+        }
+        return clone;
+    }
+
     @Override
     public String toString() {
         String s = "Symbols:\n";

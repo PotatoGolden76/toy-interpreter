@@ -2,10 +2,13 @@ package domain.structures;
 
 import domain.values.IValue;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Heap implements IHeap{
-    private HashMap<Integer, IValue> content;
+    private Map<Integer, IValue> content;
 
     public int getNextFree() {
         return nextFree;
@@ -49,12 +52,17 @@ public class Heap implements IHeap{
     }
 
     @Override
-    public void setContent(HashMap<Integer, IValue> newContent) {
+    public void setContent(Map<Integer, IValue> newContent) {
         content = newContent;
     }
 
     @Override
-    public HashMap<Integer, IValue> getContent() {
+    public Map<Integer, IValue> getContent() {
         return content;
+    }
+
+    @Override
+    public List<IValue> getValues() {
+        return Arrays.asList(content.values().toArray(new IValue[0]));
     }
 }

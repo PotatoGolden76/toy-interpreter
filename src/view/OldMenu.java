@@ -103,6 +103,8 @@ public class OldMenu {
             c.run();
         } catch (InterpreterException | IOException | ExpressionException e) {
             System.out.println(e.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

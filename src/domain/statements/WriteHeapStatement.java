@@ -35,7 +35,7 @@ public class WriteHeapStatement implements IStatement{
             throw new StatementException("Type of " + var + " and " + e + " do not match");
         }
         state.getHeap().update(ref.getAddress(), value2);
-        return state;
+        return null;
     }
 
     @Override

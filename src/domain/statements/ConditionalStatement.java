@@ -34,7 +34,7 @@ public class ConditionalStatement implements IStatement{
         } else {
             state.getStack().push(elseS);
         }
-        return state;
+        return null;
     }
 
     @Override

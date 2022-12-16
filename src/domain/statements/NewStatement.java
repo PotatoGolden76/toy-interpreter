@@ -34,7 +34,7 @@ public class NewStatement implements IStatement{
         var address = state.getHeap().allocate(value);
         state.getSymbolTable().put(this.variableName, new ReferenceValue(address, value.getType()));
 
-        return state;
+        return null;
     }
 
     @Override

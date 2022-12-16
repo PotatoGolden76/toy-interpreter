@@ -38,7 +38,7 @@ public class AssignStatement implements IStatement {
 
         symbols.put(id, eValue);
 
-        return state;
+        return null;
     }
 
     @Override

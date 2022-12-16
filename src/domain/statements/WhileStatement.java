@@ -29,7 +29,7 @@ public class WhileStatement implements IStatement{
         } else {
             throw new StatementException("Expression is not a boolean");
         }
-        return state;
+        return null;
     }
 
     @Override

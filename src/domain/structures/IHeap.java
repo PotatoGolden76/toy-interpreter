@@ -2,7 +2,10 @@ package domain.structures;
 
 import domain.values.IValue;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public interface IHeap {
     int allocate(IValue value);
@@ -10,6 +13,8 @@ public interface IHeap {
     IValue get(int address);
     boolean isDefined(int address);
     String toString();
-    void setContent(HashMap<Integer, IValue> newContent);
-    HashMap<Integer, IValue> getContent();
+    void setContent(Map<Integer, IValue> newContent);
+    Map<Integer, IValue> getContent();
+
+    List<IValue> getValues();
 }

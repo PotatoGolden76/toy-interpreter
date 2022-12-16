@@ -17,7 +17,7 @@ public class CompoundStatement implements IStatement{
         IStack<IStatement> stack = state.getStack();
         stack.push(this.second);
         stack.push(this.first);
-        return state;
+        return null;
     }
 
     @Override

@@ -32,7 +32,7 @@ public class OpenReadFileStatement implements IStatement{
         }
 
         state.getFileTable().put((StringValue) v, new BufferedReader(new FileReader(((StringValue) v).getValue())));
-        return state;
+        return null;
     }
 
     @Override

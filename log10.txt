@@ -1,0 +1,688 @@
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> int v | Ref(int) a | v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> Ref(int) a | v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+> int v
+Output: []
+Symbols:
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> Ref(int) a | v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+> int v
+Output: []
+Symbols:
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> Ref(int) a | v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[v, 0]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> Ref(int) a | v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[v, 0]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+> Ref(int) a
+Output: []
+Symbols:
+[v, 0]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+> Ref(int) a
+Output: []
+Symbols:
+[v, 0]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (0, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> v = 10 | new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (0, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+> v = 10
+Output: []
+Symbols:
+[a, (0, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+> v = 10
+Output: []
+Symbols:
+[a, (0, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (0, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> new(a, 22) | fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (0, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+> new(a, 22)
+Output: []
+Symbols:
+[a, (0, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+> new(a, 22)
+Output: []
+Symbols:
+[a, (0, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)) | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> print: v | print: readHeap(a)
+> fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a))
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> print: v | print: readHeap(a)
+> fork(writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a))
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> writeHeap(a, 30) | v = 32 | print: v | print: readHeap(a)
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> print: readHeap(a)
+> print: v
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> v = 32 | print: v | print: readHeap(a)
+> writeHeap(a, 30)
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> print: readHeap(a)
+> print: v
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> v = 32 | print: v | print: readHeap(a)
+> writeHeap(a, 30)
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->22
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> print: readHeap(a)
+Output: [10]
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> v = 32 | print: v | print: readHeap(a)
+Output: [10]
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+> print: readHeap(a)
+Output: [10]
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> v = 32 | print: v | print: readHeap(a)
+Output: [10]
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 9
+>>> Current State: 
+Execution Stack: 
+Output: [30, 10]
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> print: v | print: readHeap(a)
+> v = 32
+Output: [30, 10]
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> print: v | print: readHeap(a)
+> v = 32
+Output: [30, 10]
+Symbols:
+[a, (1, int)]
+[v, 10]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> print: v | print: readHeap(a)
+Output: [30, 10]
+Symbols:
+[a, (1, int)]
+[v, 32]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> print: v | print: readHeap(a)
+Output: [30, 10]
+Symbols:
+[a, (1, int)]
+[v, 32]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> print: readHeap(a)
+> print: v
+Output: [30, 10]
+Symbols:
+[a, (1, int)]
+[v, 32]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> print: readHeap(a)
+> print: v
+Output: [30, 10]
+Symbols:
+[a, (1, int)]
+[v, 32]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> print: readHeap(a)
+Output: [32, 30, 10]
+Symbols:
+[a, (1, int)]
+[v, 32]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+> print: readHeap(a)
+Output: [32, 30, 10]
+Symbols:
+[a, (1, int)]
+[v, 32]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+
+ID: 10
+>>> Current State: 
+Execution Stack: 
+Output: [30, 32, 30, 10]
+Symbols:
+[a, (1, int)]
+[v, 32]
+
+Files:
+
+Heap: 
+1->30
+
+
+<--- STEP --->
+

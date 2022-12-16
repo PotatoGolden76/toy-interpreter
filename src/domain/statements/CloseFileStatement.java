@@ -23,7 +23,7 @@ public class CloseFileStatement implements IStatement {
         }
         state.getFileTable().get(v).close();
         state.getFileTable().remove(v);
-        return state;
+        return null;
     }
 
     @Override

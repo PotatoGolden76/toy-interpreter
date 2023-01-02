@@ -78,7 +78,6 @@ public class Controller {
                     try {
                         return future.get();
                     } catch (InterruptedException | ExecutionException e) {
-                        //TODO: handle exceptions
                         throw new RuntimeException(e);
                     }
                 })

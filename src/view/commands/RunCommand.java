@@ -17,7 +17,7 @@ public class RunCommand extends Command {
 //            Controller copy = new Controller(this.controller);
 //            copy.run();
 
-            //TODO: clone does not work properly, file empty starting from second run
+
             this.controller.clone().run();
         } catch (Exception e) {
             System.out.println(e.getMessage());

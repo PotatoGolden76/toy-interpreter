@@ -1,10 +1,7 @@
 package controller;
 
-import domain.exceptions.ExpressionException;
-import domain.exceptions.InterpreterException;
+import domain.exceptions.*;
 import domain.ProgramState;
-import domain.exceptions.StatementException;
-import domain.exceptions.ValueException;
 import domain.statements.IStatement;
 import domain.structures.Stack;
 import domain.structures.SymbolDictionary;
@@ -29,7 +26,7 @@ public class Controller {
 
     ExecutorService executor;
 
-    public Controller(Stack initialStack, boolean step, String log) throws IOException {
+    public Controller(Stack initialStack, boolean step, String log) throws IOException, TypeException {
         this.r = new Repository(new ProgramState(initialStack), log);
         this.step = step;
     }

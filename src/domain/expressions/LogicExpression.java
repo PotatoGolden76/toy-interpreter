@@ -2,10 +2,12 @@ package domain.expressions;
 
 import domain.exceptions.ExpressionException;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.structures.Heap;
 import domain.structures.IDictionary;
 import domain.types.BooleanType;
+import domain.types.IType;
 import domain.values.BooleanValue;
 import domain.values.IValue;
 
@@ -42,6 +44,21 @@ public class LogicExpression implements IExpression {
             case 2 -> new BooleanValue(b1.getValue() || b2.getValue());
             default -> null;
         };
+    }
+
+    //Type Check
+    @Override
+    public BooleanType typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType type1, type2;
+        type1 = e1.typeCheck(typeEnvironment);
+        type2 = e2.typeCheck(typeEnvironment);
+        if (type1.equals(new BooleanType())) {
+            throw new TypeException("First operand is not a boolean.");
+        }
+        if (type2.equals(new BooleanType())) {
+            throw new TypeException("Second operand is not a boolean.");
+        }
+        return new BooleanType();
     }
 
     public String toString() {

@@ -3,8 +3,11 @@ package domain.statements;
 import domain.exceptions.ExpressionException;
 import domain.ProgramState;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
+import domain.structures.IDictionary;
+import domain.types.IType;
 import domain.types.StringType;
 import domain.values.IValue;
 import domain.values.StringValue;
@@ -33,6 +36,17 @@ public class OpenReadFileStatement implements IStatement{
 
         state.getFileTable().put((StringValue) v, new BufferedReader(new FileReader(((StringValue) v).getValue())));
         return null;
+    }
+
+    //Type Check
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType type = this.e.typeCheck(typeEnvironment);
+        if(!type.equals(new StringType())) {
+            return typeEnvironment;
+        }
+        else {
+            throw new TypeException("OpenReadFileStatement: The variable is not a string.");
+        }
     }
 
     @Override

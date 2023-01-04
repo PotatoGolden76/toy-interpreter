@@ -3,6 +3,7 @@ package view;
 import controller.Controller;
 import domain.exceptions.ExpressionException;
 import domain.exceptions.InterpreterException;
+import domain.exceptions.TypeException;
 import domain.expressions.ArithmeticExpression;
 import domain.expressions.ValueExpression;
 import domain.expressions.VariableExpression;
@@ -95,7 +96,7 @@ public class OldMenu {
         String log = scn.nextLine();
         try {
             c = new Controller(program, steps == 1, log);
-        } catch (IOException e) {
+        } catch (IOException | TypeException e) {
             throw new RuntimeException(e);
         }
         System.out.println("Initial State:\n" + c.getRepository().toString() + "\n>>> EXECUTING <<<\n");

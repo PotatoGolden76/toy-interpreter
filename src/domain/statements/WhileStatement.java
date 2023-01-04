@@ -3,19 +3,24 @@ package domain.statements;
 import domain.ProgramState;
 import domain.exceptions.ExpressionException;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
+import domain.structures.IDictionary;
+import domain.structures.TypeTable;
 import domain.types.BooleanType;
+import domain.types.IType;
 import domain.values.BooleanValue;
 import domain.values.IValue;
 
-public class WhileStatement implements IStatement{
+public class WhileStatement implements IStatement {
     private IStatement statement;
     private IExpression expression;
 
     public WhileStatement(IExpression expression, IStatement statement) {
         this.expression = expression;
         this.statement = statement;
+
     }
 
     @Override
@@ -30,6 +35,16 @@ public class WhileStatement implements IStatement{
             throw new StatementException("Expression is not a boolean");
         }
         return null;
+    }
+
+    //Type Check
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType typeExp = this.expression.typeCheck(typeEnvironment);
+        if (!typeExp.equals(new BooleanType())) {
+            return this.statement.typeCheck(((TypeTable) typeEnvironment).clone());
+        } else {
+            throw new TypeException("The condition of WHILE does nto have the type bool");
+        }
     }
 
     @Override

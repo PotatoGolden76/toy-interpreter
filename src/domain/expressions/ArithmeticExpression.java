@@ -2,9 +2,11 @@ package domain.expressions;
 
 import domain.exceptions.ExpressionException;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.structures.Heap;
 import domain.structures.IDictionary;
+import domain.types.IType;
 import domain.types.IntType;
 import domain.values.IValue;
 import domain.values.IntValue;
@@ -35,11 +37,11 @@ public class ArithmeticExpression implements IExpression {
 
         IntValue int1 = (IntValue) v1;
         IntValue int2 = (IntValue) v2;
-        System.out.println(v1 + " " + v2);
-        System.out.println(int1 + " " + int2);
+//        System.out.println(v1 + " " + v2);
+//        System.out.println(int1 + " " + int2);
         switch (operator) {
             case '+':
-                System.out.println(new IntValue(int1.getValue() + int2.getValue()) + "");
+//                System.out.println(new IntValue(int1.getValue() + int2.getValue()) + "");
                 return new IntValue(int1.getValue() + int2.getValue());
             case '-':
                 return new IntValue(int1.getValue() - int2.getValue());
@@ -51,6 +53,20 @@ public class ArithmeticExpression implements IExpression {
                 return null;
         }
     }
+
+    public IType typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType type1, type2;
+        type1 = e1.typeCheck(typeEnvironment);
+        type2 = e2.typeCheck(typeEnvironment);
+        if (type1.equals(new IntType())) {
+            throw new TypeException("First operand is not an integer.");
+        }
+        if (type2.equals(new IntType())) {
+            throw new TypeException("Second operand is not an integer.");
+        }
+        return new IntType();
+    }
+
 
     @Override
     public String toString() {

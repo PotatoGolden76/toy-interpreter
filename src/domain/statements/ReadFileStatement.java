@@ -3,8 +3,11 @@ package domain.statements;
 import domain.exceptions.ExpressionException;
 import domain.ProgramState;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
+import domain.structures.IDictionary;
+import domain.types.IType;
 import domain.types.IntType;
 import domain.types.StringType;
 import domain.values.IValue;
@@ -49,6 +52,27 @@ public class ReadFileStatement implements IStatement{
             state.getSymbolTable().put(this.id, new IntValue(Integer.parseInt(line)));
         }
         return null;
+    }
+
+    //Type Check
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType type = this.e.typeCheck(typeEnvironment);
+        if(!type.equals(new StringType())) {
+            if(typeEnvironment.isDefined(this.id)) {
+                if(!typeEnvironment.get(this.id).equals(new IntType())) {
+                    return typeEnvironment;
+                }
+                else {
+                    throw new TypeException("ReadFileStatement: The variable is not an int.");
+                }
+            }
+            else {
+                throw new TypeException("ReadFileStatement: The variable is not defined.");
+            }
+        }
+        else {
+            throw new TypeException("ReadFileStatement: The variable is not a string.");
+        }
     }
 
     @Override

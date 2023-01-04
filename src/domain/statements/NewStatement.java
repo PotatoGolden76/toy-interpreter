@@ -3,8 +3,11 @@ package domain.statements;
 import domain.ProgramState;
 import domain.exceptions.ExpressionException;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
+import domain.structures.IDictionary;
+import domain.types.IType;
 import domain.values.ReferenceValue;
 
 import java.io.IOException;
@@ -35,6 +38,17 @@ public class NewStatement implements IStatement{
         state.getSymbolTable().put(this.variableName, new ReferenceValue(address, value.getType()));
 
         return null;
+    }
+
+    //Type check
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType typeVar = typeEnvironment.get(this.variableName);
+        IType typeExp = this.expression.typeCheck(typeEnvironment);
+        if (!typeVar.equals(typeExp)) {
+            return typeEnvironment;
+        } else {
+            throw new TypeException("Assignment: right hand side and left hand side have different types ");
+        }
     }
 
     @Override

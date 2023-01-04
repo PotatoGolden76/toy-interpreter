@@ -36,6 +36,10 @@ public class Stack implements IStack<IStatement> {
         return this.internal.isEmpty();
     }
 
+    public java.util.Stack<IStatement> getStack() {
+        return this.internal;
+    }
+
     @Override
     public String toString() {
         String s = "Execution Stack: ";

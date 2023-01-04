@@ -1,4 +1,5 @@
 import controller.Controller;
+import domain.exceptions.TypeException;
 import domain.structures.Stack;
 import view.TextMenu;
 import view.commands.ExitCommand;
@@ -10,7 +11,7 @@ import static view.Programs.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, TypeException {
         TextMenu menu = new TextMenu();
         Controller c1, c2, c3, c4, c5, c6, c7, c8, c9, c10;
 

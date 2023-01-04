@@ -3,6 +3,7 @@ package domain.statements;
 import domain.*;
 import domain.exceptions.ExpressionException;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
 import domain.structures.IDictionary;
@@ -39,6 +40,17 @@ public class AssignStatement implements IStatement {
         symbols.put(id, eValue);
 
         return null;
+    }
+
+    //Type check
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType typeVar = typeEnvironment.get(id);
+        IType typeExp = e.typeCheck(typeEnvironment);
+        if (!typeVar.equals(typeExp)) { //equals is inverted???
+            return typeEnvironment;
+        } else {
+            throw new TypeException("Assignment: right hand side and left hand side have different types ");
+        }
     }
 
     @Override

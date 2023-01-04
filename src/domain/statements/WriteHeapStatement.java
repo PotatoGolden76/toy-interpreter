@@ -3,8 +3,11 @@ package domain.statements;
 import domain.ProgramState;
 import domain.exceptions.ExpressionException;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.expressions.IExpression;
+import domain.structures.IDictionary;
+import domain.types.IType;
 import domain.values.IValue;
 import domain.values.ReferenceValue;
 
@@ -36,6 +39,17 @@ public class WriteHeapStatement implements IStatement{
         }
         state.getHeap().update(ref.getAddress(), value2);
         return null;
+    }
+
+    //Type check
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType typeVar = typeEnvironment.get(this.var);
+        IType typeExp = this.e.typeCheck(typeEnvironment);
+        if (!typeVar.equals(typeExp)) {
+            return typeEnvironment;
+        } else {
+            throw new TypeException("Assignment: right hand side and left hand side have different types ");
+        }
     }
 
     @Override

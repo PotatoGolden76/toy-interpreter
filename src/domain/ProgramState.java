@@ -1,9 +1,6 @@
 package domain;
 
-import domain.exceptions.ExpressionException;
-import domain.exceptions.InterpreterException;
-import domain.exceptions.StatementException;
-import domain.exceptions.ValueException;
+import domain.exceptions.*;
 import domain.statements.IStatement;
 import domain.structures.*;
 
@@ -21,14 +18,23 @@ public class ProgramState {
     FileDictionary fileTable = new FileDictionary();
 
     Heap heap = new Heap();
+    TypeTable typeTable = new TypeTable();
 
-    public ProgramState(Stack initialStack) {
+    public ProgramState(Stack initialStack) throws TypeException {
+        for(IStatement st : initialStack.getStack()) {
+            this.typeTable = this.typeCheck(st, typeTable);
+        }
+
         this.executionStack = initialStack;
         this.id = nextId;
         nextId++;
     }
 
-    public ProgramState(Stack initialStack, SymbolDictionary clone, Queue output, FileDictionary fileTable, Heap heap, IStatement statement) {
+    public ProgramState(Stack initialStack, SymbolDictionary clone, Queue output, FileDictionary fileTable, Heap heap, IStatement statement) throws TypeException {
+        for(IStatement st : initialStack.getStack()) {
+            this.typeTable = this.typeCheck(st, typeTable);
+        }
+
         this.executionStack = initialStack;
         this.symbolTable = clone;
         this.output = output;
@@ -38,6 +44,12 @@ public class ProgramState {
         this.id = nextId;
         nextId++;
     }
+
+    //TypeCheck
+    public TypeTable typeCheck(IStatement st, TypeTable types) throws TypeException {
+       return (TypeTable) st.typeCheck(types);
+    }
+
 
     public synchronized void setID(int id) {
         this.id = id;
@@ -71,7 +83,7 @@ public class ProgramState {
         return this.executionStack.isEmpty();
     }
 
-    public ProgramState oneStep() throws InterpreterException, StatementException, ValueException, IOException, ExpressionException {
+    public ProgramState oneStep() throws InterpreterException, StatementException, ValueException, IOException, ExpressionException, TypeException {
         if (this.isCompleted()) {
             throw new InterpreterException("Stack is empty");
         }

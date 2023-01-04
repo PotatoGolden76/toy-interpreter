@@ -2,9 +2,12 @@ package domain.expressions;
 
 import domain.exceptions.ExpressionException;
 import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
 import domain.exceptions.ValueException;
 import domain.structures.Heap;
 import domain.structures.IDictionary;
+import domain.types.BooleanType;
+import domain.types.IType;
 import domain.values.IValue;
 
 public class RelationalExpression implements IExpression {
@@ -33,6 +36,18 @@ public class RelationalExpression implements IExpression {
             case ">=" -> leftValue.greaterThanOrEqual(rightValue);
             default -> throw new ExpressionException("Invalid operator.");
         };
+    }
+
+    // Type check
+    public IType typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        IType type1, type2;
+        type1 = left.typeCheck(typeEnvironment);
+        type2 = right.typeCheck(typeEnvironment);
+        if (!type1.equals(type2)) {
+            return new BooleanType();
+        } else {
+            throw new TypeException("Operands have different types.");
+        }
     }
 
     @Override

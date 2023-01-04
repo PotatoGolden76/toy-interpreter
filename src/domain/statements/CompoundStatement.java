@@ -1,7 +1,11 @@
 package domain.statements;
 
+import domain.exceptions.StatementException;
+import domain.exceptions.TypeException;
+import domain.structures.IDictionary;
 import domain.structures.IStack;
 import domain.ProgramState;
+import domain.types.IType;
 
 public class CompoundStatement implements IStatement{
     final IStatement first;
@@ -18,6 +22,11 @@ public class CompoundStatement implements IStatement{
         stack.push(this.second);
         stack.push(this.first);
         return null;
+    }
+
+    //Type Check
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
+        return this.second.typeCheck(this.first.typeCheck(typeEnvironment));
     }
 
     @Override

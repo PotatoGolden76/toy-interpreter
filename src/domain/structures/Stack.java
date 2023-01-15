@@ -48,4 +48,9 @@ public class Stack implements IStack<IStatement> {
         }
         return s;
     }
+
+    @Override
+    public IStatement[] content() {
+        return this.internal.toArray(new IStatement[0]);
+    }
 }

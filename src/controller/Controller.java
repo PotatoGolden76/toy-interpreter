@@ -29,6 +29,7 @@ public class Controller {
     public Controller(Stack initialStack, boolean step, String log) throws IOException, TypeException {
         this.r = new Repository(new ProgramState(initialStack), log);
         this.step = step;
+        executor = Executors.newFixedThreadPool(2);
     }
 
     public Controller(Repository clone, boolean step) {
@@ -58,6 +59,12 @@ public class Controller {
     }
 
     public void allStep(List<ProgramState> programs) throws InterruptedException {
+
+        if(programs.size() == 0)
+            return;
+
+
+        conservativeGC(programs);
         programs.forEach(p -> {
             try {
                 r.logProgramState(p);
@@ -91,6 +98,7 @@ public class Controller {
             }
         });
 
+//        programs = removeCompletedPrograms(programs);
         this.r.setState(programs);
     }
 

@@ -12,6 +12,7 @@ import domain.values.StringValue;
 
 public class Programs {
     public static IStatement s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
+    public static IStatement[] statements;
 
     static {
         s1 = new CompoundStatement(
@@ -143,5 +144,8 @@ public class Programs {
                                                 new CompoundStatement(
                                                         new PrintStatement(new VariableExpression("v")),
                                                         new PrintStatement(new ReadHeapExpression(new VariableExpression("a")))))))));
+
+
+        statements = new IStatement[]{s1, s2, s3, s4, s5, s6, s7, s8, s9, s10};
     }
 }

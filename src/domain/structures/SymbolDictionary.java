@@ -3,6 +3,7 @@ package domain.structures;
 import domain.values.IValue;
 
 import java.util.Enumeration;
+import java.util.Map;
 
 public class SymbolDictionary implements IDictionary<String, IValue> {
 
@@ -65,5 +66,9 @@ public class SymbolDictionary implements IDictionary<String, IValue> {
             s = s.concat("[" + key + ", " + this.internal.get(key) +  "]\n");
         }
         return s;
+    }
+
+    public Map<String, IValue> content() {
+        return this.internal;
     }
 }

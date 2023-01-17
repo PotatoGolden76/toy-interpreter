@@ -98,7 +98,7 @@ public class Controller {
             }
         });
 
-//        programs = removeCompletedPrograms(programs);
+        programs = removeCompletedPrograms(programs);
         this.r.setState(programs);
     }
 

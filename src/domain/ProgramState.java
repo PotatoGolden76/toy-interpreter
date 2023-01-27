@@ -5,6 +5,8 @@ import domain.statements.IStatement;
 import domain.structures.*;
 
 import java.io.IOException;
+import java.util.Dictionary;
+import java.util.concurrent.locks.Lock;
 
 public class ProgramState {
 
@@ -19,6 +21,8 @@ public class ProgramState {
 
     Heap heap = new Heap();
     TypeTable typeTable = new TypeTable();
+
+    LockTable lockTable = new LockTable();
 
     public ProgramState(Stack initialStack) throws TypeException {
         for(IStatement st : initialStack.getStack()) {
@@ -43,6 +47,14 @@ public class ProgramState {
         this.executionStack.push(statement);
         this.id = nextId;
         nextId++;
+    }
+
+    public LockTable getLockTable() {
+        return lockTable;
+    }
+
+    public void setLockTable(LockTable lockTable) {
+        this.lockTable = lockTable;
     }
 
     //TypeCheck
@@ -98,6 +110,7 @@ public class ProgramState {
                 "\n" + output +
                 "\n" + symbolTable +
                 "\n" + fileTable +
-                "\n" + heap;
+                "\n" + heap +
+                "\n" + lockTable;
     }
 }

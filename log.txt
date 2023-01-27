@@ -1,4 +1,4 @@
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > Ref(int) a | new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a) | [NoOp]
@@ -9,10 +9,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -24,10 +26,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -39,10 +43,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -55,10 +61,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -71,10 +79,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -87,10 +97,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -103,10 +115,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -120,10 +134,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -137,10 +153,12 @@ Files:
 
 Heap: 
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -154,10 +172,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -171,10 +191,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -189,10 +211,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -207,10 +231,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -225,10 +251,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -243,10 +271,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -262,10 +292,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -281,10 +313,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -300,10 +334,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -319,10 +355,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -339,10 +377,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -359,10 +399,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -378,10 +420,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -397,30 +441,12 @@ Files:
 Heap: 
 1->20
 
-
-<--- STEP --->
-
-ID: 4
->>> Current State: 
-Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> fork(print: v | v = ) | v = 
-Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
-
-Files:
-
-Heap: 
-1->20
 
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -437,10 +463,34 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> fork(print: v | v = ) | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+Symbols:
+
+
+<--- STEP --->
+
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -458,10 +508,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -479,10 +531,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -499,10 +553,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 5
+ID: 1
 >>> Current State: 
 Execution Stack: 
 > print: v | v = 
@@ -516,10 +572,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -536,10 +594,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 5
+ID: 1
 >>> Current State: 
 Execution Stack: 
 > print: v | v = 
@@ -553,10 +613,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -572,10 +634,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 5
+ID: 1
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -590,10 +654,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -609,10 +675,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 5
+ID: 1
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -627,10 +695,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -647,10 +717,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 5
+ID: 1
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -664,10 +736,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -684,10 +758,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 5
+ID: 1
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -701,10 +777,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -722,10 +800,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 5
+ID: 1
 >>> Current State: 
 Execution Stack: 
 Output: [0]
@@ -738,10 +818,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -759,10 +841,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -779,10 +863,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 6
+ID: 2
 >>> Current State: 
 Execution Stack: 
 > print: v | v = 
@@ -796,10 +882,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -816,10 +904,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 6
+ID: 2
 >>> Current State: 
 Execution Stack: 
 > print: v | v = 
@@ -833,10 +923,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -852,10 +944,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 6
+ID: 2
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -870,10 +964,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -889,10 +985,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 6
+ID: 2
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -907,10 +1005,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -927,10 +1027,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 6
+ID: 2
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -944,10 +1046,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -964,10 +1068,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 6
+ID: 2
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -981,10 +1087,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1002,10 +1110,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 6
+ID: 2
 >>> Current State: 
 Execution Stack: 
 Output: [1, 0]
@@ -1018,10 +1128,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1039,10 +1151,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1059,10 +1173,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 7
+ID: 3
 >>> Current State: 
 Execution Stack: 
 > print: v | v = 
@@ -1076,10 +1192,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1096,10 +1214,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 7
+ID: 3
 >>> Current State: 
 Execution Stack: 
 > print: v | v = 
@@ -1113,10 +1233,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1132,10 +1254,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 7
+ID: 3
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -1150,10 +1274,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1169,10 +1295,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 7
+ID: 3
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -1187,10 +1315,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1205,10 +1335,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 7
+ID: 3
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -1222,10 +1354,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1240,10 +1374,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 7
+ID: 3
 >>> Current State: 
 Execution Stack: 
 > v = 
@@ -1257,10 +1393,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 4
+ID: 0
 >>> Current State: 
 Execution Stack: 
 > [NoOp]
@@ -1274,10 +1412,12 @@ Files:
 Heap: 
 1->20
 
+Symbols:
+
 
 <--- STEP --->
 
-ID: 7
+ID: 3
 >>> Current State: 
 Execution Stack: 
 Output: [20, 2, 1, 0]
@@ -1289,6 +1429,8 @@ Files:
 
 Heap: 
 1->20
+
+Symbols:
 
 
 <--- STEP --->

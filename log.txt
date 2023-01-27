@@ -1,7 +1,7 @@
 ID: 4
 >>> Current State: 
 Execution Stack: 
-> int v | v = 2 | print: v
+> Ref(int) a | new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a) | [NoOp]
 Output: []
 Symbols:
 
@@ -15,14 +15,252 @@ Heap:
 ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 2 | print: v
+> [NoOp]
+> Ref(int) a | new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+Output: []
+Symbols:
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> Ref(int) a | new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+Output: []
+Symbols:
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> Ref(int) a
+Output: []
+Symbols:
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> Ref(int) a
+Output: []
+Symbols:
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+Output: []
+Symbols:
+[a, (0, int)]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+Output: []
+Symbols:
+[a, (0, int)]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> new(a, 20)
+Output: []
+Symbols:
+[a, (0, int)]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> new(a, 20)
+Output: []
+Symbols:
+[a, (0, int)]
+
+Files:
+
+Heap: 
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+Output: []
+Symbols:
+[a, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+Output: []
+Symbols:
+[a, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> for (0; 3; ) fork(print: v | v = )
+Output: []
+Symbols:
+[a, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> for (0; 3; ) fork(print: v | v = )
+Output: []
+Symbols:
+[a, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> int v | v = 0 | while(v < 3) fork(print: v | v = ) | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> int v | v = 0 | while(v < 3) fork(print: v | v = ) | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> v = 0 | while(v < 3) fork(print: v | v = ) | v = 
 > int v
 Output: []
 Symbols:
+[a, (1, int)]
 
 Files:
 
 Heap: 
+1->20
 
 
 <--- STEP --->
@@ -30,14 +268,18 @@ Heap:
 ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 2 | print: v
+> [NoOp]
+> print: readHeap(a)
+> v = 0 | while(v < 3) fork(print: v | v = ) | v = 
 > int v
 Output: []
 Symbols:
+[a, (1, int)]
 
 Files:
 
 Heap: 
+1->20
 
 
 <--- STEP --->
@@ -45,14 +287,18 @@ Heap:
 ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 2 | print: v
+> [NoOp]
+> print: readHeap(a)
+> v = 0 | while(v < 3) fork(print: v | v = ) | v = 
 Output: []
 Symbols:
+[a, (1, int)]
 [v, 0]
 
 Files:
 
 Heap: 
+1->20
 
 
 <--- STEP --->
@@ -60,14 +306,18 @@ Heap:
 ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 2 | print: v
+> [NoOp]
+> print: readHeap(a)
+> v = 0 | while(v < 3) fork(print: v | v = ) | v = 
 Output: []
 Symbols:
+[a, (1, int)]
 [v, 0]
 
 Files:
 
 Heap: 
+1->20
 
 
 <--- STEP --->
@@ -75,15 +325,270 @@ Heap:
 ID: 4
 >>> Current State: 
 Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 0
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 0
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> fork(print: v | v = ) | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> fork(print: v | v = ) | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+> fork(print: v | v = )
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+> fork(print: v | v = )
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> print: v | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> print: v | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+Output: []
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> v = 
 > print: v
-> v = 2
 Output: []
 Symbols:
+[a, (1, int)]
 [v, 0]
 
 Files:
 
 Heap: 
+1->20
 
 
 <--- STEP --->
@@ -91,15 +596,36 @@ Heap:
 ID: 4
 >>> Current State: 
 Execution Stack: 
-> print: v
-> v = 2
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
 Output: []
 Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> v = 
+> print: v
+Output: []
+Symbols:
+[a, (1, int)]
 [v, 0]
 
 Files:
 
 Heap: 
+1->20
 
 
 <--- STEP --->
@@ -107,29 +633,242 @@ Heap:
 ID: 4
 >>> Current State: 
 Execution Stack: 
-> print: v
-Output: []
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> fork(print: v | v = ) | v = 
+Output: [0]
 Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> v = 
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> fork(print: v | v = ) | v = 
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> v = 
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+> fork(print: v | v = )
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 0]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+> fork(print: v | v = )
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> print: v | v = 
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> print: v | v = 
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+Output: [0]
+Symbols:
+[a, (1, int)]
 [v, 2]
 
 Files:
 
 Heap: 
+1->20
 
 
 <--- STEP --->
 
-ID: 4
+ID: 6
 >>> Current State: 
 Execution Stack: 
+> v = 
 > print: v
-Output: []
+Output: [0]
 Symbols:
-[v, 2]
+[a, (1, int)]
+[v, 1]
 
 Files:
 
 Heap: 
+1->20
 
 
 <--- STEP --->
@@ -137,13 +876,419 @@ Heap:
 ID: 4
 >>> Current State: 
 Execution Stack: 
-Output: [2]
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+Output: [0]
 Symbols:
+[a, (1, int)]
 [v, 2]
 
 Files:
 
 Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> v = 
+> print: v
+Output: [0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> fork(print: v | v = ) | v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> fork(print: v | v = ) | v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 1]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+> fork(print: v | v = )
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 20]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+> fork(print: v | v = )
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> print: v | v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+> v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> print: v | v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 3]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> v = 
+> print: v
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+> while(v < 3) fork(print: v | v = ) | v = 
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 3]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> v = 
+> print: v
+Output: [1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+Output: [2, 1, 0]
+Symbols:
+[a, (1, int)]
+[v, 3]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> v = 
+Output: [2, 1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+> print: readHeap(a)
+Output: [2, 1, 0]
+Symbols:
+[a, (1, int)]
+[v, 3]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> v = 
+Output: [2, 1, 0]
+Symbols:
+[a, (1, int)]
+[v, 2]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp]
+Output: [20, 2, 1, 0]
+Symbols:
+[a, (1, int)]
+[v, 3]
+
+Files:
+
+Heap: 
+1->20
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+Output: [20, 2, 1, 0]
+Symbols:
+[a, (1, int)]
+[v, 40]
+
+Files:
+
+Heap: 
+1->20
 
 
 <--- STEP --->

@@ -31,9 +31,6 @@ public class NewStatement implements IStatement{
         if(!(state.getSymbolTable().get(this.variableName) instanceof ReferenceValue))
             throw new StatementException("Variable " + this.variableName + " is not a reference value");
 
-        if(!value.getType().equals(state.getSymbolTable().get(this.variableName).getType()))
-            throw new StatementException("Variable " + this.variableName + " is not of the same type as the expression");
-
         var address = state.getHeap().allocate(value);
         state.getSymbolTable().put(this.variableName, new ReferenceValue(address, value.getType()));
 

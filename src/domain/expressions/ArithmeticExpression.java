@@ -28,10 +28,10 @@ public class ArithmeticExpression implements IExpression {
         IValue v1 = this.e1.evaluate(symbolTable, heap);
         IValue v2 = this.e2.evaluate(symbolTable, heap);
 
-        if (v1.getType().equals(new IntType())) {
+        if (!v1.getType().equals(new IntType())) {
             throw new ExpressionException("Operand " + v1 + " is not an integer.");
         }
-        if (v2.getType().equals(new IntType())) {
+        if (!v2.getType().equals(new IntType())) {
             throw new ExpressionException("Operand " + v2 + " is not an integer.");
         }
 
@@ -58,10 +58,10 @@ public class ArithmeticExpression implements IExpression {
         IType type1, type2;
         type1 = e1.typeCheck(typeEnvironment);
         type2 = e2.typeCheck(typeEnvironment);
-        if (type1.equals(new IntType())) {
+        if (!type1.equals(new IntType())) {
             throw new TypeException("First operand is not an integer.");
         }
-        if (type2.equals(new IntType())) {
+        if (!type2.equals(new IntType())) {
             throw new TypeException("Second operand is not an integer.");
         }
         return new IntType();

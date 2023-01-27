@@ -30,7 +30,7 @@ public class AssignStatement implements IStatement {
         IType eType = symbols.get(id).getType();
 
 
-        if (eValue.getType().equals(eType)) {
+        if (!eValue.getType().equals(eType)) {
             throw new StatementException("Declared type " + id +" and type " + eType + " do not match.");
         }
         if (!symbols.isDefined(id)) {
@@ -46,7 +46,7 @@ public class AssignStatement implements IStatement {
     public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnvironment) throws TypeException {
         IType typeVar = typeEnvironment.get(id);
         IType typeExp = e.typeCheck(typeEnvironment);
-        if (!typeVar.equals(typeExp)) { //equals is inverted???
+        if (typeVar.equals(typeExp)) { //equals is inverted???
             return typeEnvironment;
         } else {
             throw new TypeException("Assignment: right hand side and left hand side have different types ");

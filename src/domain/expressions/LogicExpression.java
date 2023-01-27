@@ -52,10 +52,10 @@ public class LogicExpression implements IExpression {
         IType type1, type2;
         type1 = e1.typeCheck(typeEnvironment);
         type2 = e2.typeCheck(typeEnvironment);
-        if (type1.equals(new BooleanType())) {
+        if (!type1.equals(new BooleanType())) {
             throw new TypeException("First operand is not a boolean.");
         }
-        if (type2.equals(new BooleanType())) {
+        if (!type2.equals(new BooleanType())) {
             throw new TypeException("Second operand is not a boolean.");
         }
         return new BooleanType();

@@ -6,7 +6,7 @@ import domain.values.StringValue;
 public class StringType implements IType{
     @Override
     public boolean equals(IType type) {
-        return !(type instanceof StringType);
+        return (type instanceof StringType);
     }
 
     @Override

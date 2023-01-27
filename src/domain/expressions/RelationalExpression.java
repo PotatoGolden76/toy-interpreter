@@ -43,7 +43,7 @@ public class RelationalExpression implements IExpression {
         IType type1, type2;
         type1 = left.typeCheck(typeEnvironment);
         type2 = right.typeCheck(typeEnvironment);
-        if (!type1.equals(type2)) {
+        if (type1.equals(type2)) {
             return new BooleanType();
         } else {
             throw new TypeException("Operands have different types.");

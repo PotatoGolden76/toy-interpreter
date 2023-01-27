@@ -145,6 +145,8 @@ public class ProgramController {
     }
 
     private void populateOutput() {
+//        if(this.numberOfProgramStates.getText().equals("0"))
+//            return;
         Queue output;
         if (controller.getRepository().getState().size() > 0)
             output = controller.getRepository().getState().get(0).getOutput();

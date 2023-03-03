@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="994.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProgramController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="811.0" prefWidth="994.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProgramController">
     <TableView fx:id="heapTable" layoutX="336.0" layoutY="284.0" prefHeight="200.0" prefWidth="300.0">
         <columns>
             <TableColumn fx:id="addressColumn" prefWidth="200.0" text="Address" />
@@ -34,4 +34,10 @@
     <TextField fx:id="numberOfProgramStates" editable="false" layoutX="14.0" layoutY="528.0" />
     <Label layoutX="14.0" layoutY="500.0" text="Number of program states" />
     <Button fx:id="oneStep" layoutX="192.0" layoutY="510.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="764.0" text="Step" />
+   <TableView fx:id="lockTable" layoutX="14.0" layoutY="577.0" prefHeight="200.0" prefWidth="402.0">
+      <columns>
+         <TableColumn fx:id="locationColumn" prefWidth="200.0" text="Location" />
+         <TableColumn fx:id="lockColumn" prefWidth="200.0" text="Value" />
+      </columns>
+   </TableView>
 </AnchorPane>

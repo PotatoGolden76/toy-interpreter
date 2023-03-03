@@ -34,7 +34,7 @@ public class UnlockStatement implements IStatement {
 
         if(foundIndex == null)
             throw new InterpreterException("No such variable in symbolTable");
-        if(!(foundIndex.getType() instanceof IntValue))
+        if(!(foundIndex.getType() instanceof IntType))
             throw new InterpreterException("Variable is not an integer");
 
         Integer lockValue = state.getLockTable().get(((IntValue)foundIndex).getValue());

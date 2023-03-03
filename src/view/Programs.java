@@ -2,6 +2,9 @@ package view;
 
 import domain.expressions.*;
 import domain.statements.*;
+import domain.statements.lock.LockStatement;
+import domain.statements.lock.NewLockStatement;
+import domain.statements.lock.UnlockStatement;
 import domain.types.BooleanType;
 import domain.types.IntType;
 import domain.types.ReferenceType;
@@ -11,7 +14,7 @@ import domain.values.IntValue;
 import domain.values.StringValue;
 
 public class Programs {
-    public static IStatement s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, exam;
+    public static IStatement s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, exam, examlock;
     public static IStatement[] statements;
 
     static {
@@ -163,7 +166,88 @@ public class Programs {
                                         new PrintStatement(new ReadHeapExpression(new VariableExpression("a")))))),
                 new NoOpStatement());
 
+        /*
+        Ref int v1; Ref int v2; int x; int q;
+new(v1,20);new(v2,30);newLock(x);
+fork(
+ fork(
+ lock(x);wh(v1,rh(v1)-1);unlock(x)
+ );
+ lock(x);wh(v1,rh(v1)*10);unlock(x)
+);newLock(q);
+fork(
+ fork(lock(q);wh(v2,rh(v2)+5);unlock(q));
+ lock(q);wh(v2,rh(v2)*10);unlock(q)
+);
+nop;nop;nop;nop;
+lock(x); print(rh(v1)); unlock(x);
+lock(q); print(rh(v2)); unlock(q);
+         */
+        examlock = new CompoundStatement(
+                    new DeclarationStatement("v1", new ReferenceType(new IntType())),
+                    new CompoundStatement(
+                            new DeclarationStatement("v2", new ReferenceType(new IntType())),
+                            new CompoundStatement(
+                                    new DeclarationStatement("x", new IntType()),
+                                    new CompoundStatement(
+                                            new DeclarationStatement("q", new IntType()),
+                                            new CompoundStatement(
+                                                    new NewStatement("v1", new ValueExpression(new IntValue(20))),
+                                                    new CompoundStatement(
+                                                            new NewStatement("v2", new ValueExpression(new IntValue(30))),
+                                                            new CompoundStatement(
+                                                                    new NewLockStatement("x"),
+                                                                    new CompoundStatement(
+                                                                            new ForkStatement(
+                                                                                    new CompoundStatement(
+                                                                                            new ForkStatement(
+                                                                                                    new CompoundStatement(
+                                                                                                            new LockStatement("x"),
+                                                                                                            new CompoundStatement(
+                                                                                                                    new WriteHeapStatement("v1", new ArithmeticExpression(new ReadHeapExpression(new VariableExpression("v1")), new ValueExpression(new IntValue(1)), '-')),
+                                                                                                                    new UnlockStatement("x")))),
+                                                                                            new CompoundStatement(
+                                                                                                    new LockStatement("x"),
+                                                                                                    new CompoundStatement(
+                                                                                                            new WriteHeapStatement("v1", new ArithmeticExpression(new ReadHeapExpression(new VariableExpression("v1")), new ValueExpression(new IntValue(10)), '*')),
+                                                                                                            new UnlockStatement("x"))))),
+                                                                                    new CompoundStatement(
+                                                                                            new NewLockStatement("q"),
+                                                                                            new CompoundStatement(
+                                                                                                    new CompoundStatement(
+                                                                                                            new ForkStatement(
+                                                                                                                    new CompoundStatement(
+                                                                                                                            new LockStatement("q"),
+                                                                                                                            new CompoundStatement(
+                                                                                                                                    new WriteHeapStatement("v2", new ArithmeticExpression(new ReadHeapExpression(new VariableExpression("v2")), new ValueExpression(new IntValue(5)), '+')),
+                                                                                                                                    new UnlockStatement("q")))),
+                                                                                                            new CompoundStatement(
+                                                                                                                    new LockStatement("q"),
+                                                                                                                    new CompoundStatement(
+                                                                                                                            new WriteHeapStatement("v2", new ArithmeticExpression(new ReadHeapExpression(new VariableExpression("v2")), new ValueExpression(new IntValue(10)), '*')),
+                                                                                                                            new UnlockStatement("q")))
+                                                                                                    ),
+                                                                                                        new CompoundStatement(
+                                                                                                                new NoOpStatement(),
+                                                                                                                new CompoundStatement(
+                                                                                                                        new NoOpStatement(),
+                                                                                                                        new CompoundStatement(
+                                                                                                                                new NoOpStatement(),
+                                                                                                                                new CompoundStatement(
+                                                                                                                                        new NoOpStatement(),
+                                                                                                                                        new CompoundStatement(
+                                                                                                                                                new LockStatement("x"),
+                                                                                                                                                new CompoundStatement(
+                                                                                                                                                        new PrintStatement(new ReadHeapExpression(new VariableExpression("v1"))),
+                                                                                                                                                        new CompoundStatement(
+                                                                                                                                                                new UnlockStatement("x"),
+                                                                                                                                                                new CompoundStatement(
+                                                                                                                                                                        new LockStatement("q"),
+                                                                                                                                                                        new CompoundStatement(
+                                                                                                                                                                                new PrintStatement(new ReadHeapExpression(new VariableExpression("v2"))),
+                                                                                                                                                                                new UnlockStatement("q"))))))))))))))))))));
 
-        statements = new IStatement[]{exam};
+
+                statements = new IStatement[]{exam, examlock};
     }
 }

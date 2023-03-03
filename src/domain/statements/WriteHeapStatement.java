@@ -34,7 +34,7 @@ public class WriteHeapStatement implements IStatement{
             throw new StatementException("Address " + ref.getAddress() + " not defined in heap");
         }
         IValue value2 = e.evaluate(state.getSymbolTable(), state.getHeap());
-        if (!value2.getType().equals(ref.getType())) {
+        if (value2.getType().equals(ref.getType())) {
             throw new StatementException("Type of " + var + " and " + e + " do not match");
         }
         state.getHeap().update(ref.getAddress(), value2);

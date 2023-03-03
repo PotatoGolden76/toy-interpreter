@@ -1,7 +1,7 @@
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> Ref(int) a | new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a) | [NoOp]
+> Ref(int) v1 | Ref(int) v2 | int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
 
@@ -14,11 +14,11 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> Ref(int) a | new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> Ref(int) v2 | int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> Ref(int) v1
 Output: []
 Symbols:
 
@@ -31,11 +31,11 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> Ref(int) a | new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> Ref(int) v2 | int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> Ref(int) v1
 Output: []
 Symbols:
 
@@ -48,14 +48,13 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
-> Ref(int) a
+> Ref(int) v2 | int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
+[v1, (0, int)]
 
 Files:
 
@@ -66,14 +65,13 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
-> Ref(int) a
+> Ref(int) v2 | int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
+[v1, (0, int)]
 
 Files:
 
@@ -84,14 +82,14 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> Ref(int) v2
 Output: []
 Symbols:
-[a, (0, int)]
+[v1, (0, int)]
 
 Files:
 
@@ -102,14 +100,14 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> new(a, 20) | for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> Ref(int) v2
 Output: []
 Symbols:
-[a, (0, int)]
+[v1, (0, int)]
 
 Files:
 
@@ -120,15 +118,14 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
-> new(a, 20)
+> int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (0, int)]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
@@ -139,15 +136,14 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
-> new(a, 20)
+> int x | int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (0, int)]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
@@ -158,219 +154,214 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> int x
 Output: []
 Symbols:
-[a, (1, int)]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> for (0; 3; ) fork(print: v | v = ) | print: readHeap(a)
+> int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> int x
 Output: []
 Symbols:
-[a, (1, int)]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> for (0; 3; ) fork(print: v | v = )
+> int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
+[x, 0]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> for (0; 3; ) fork(print: v | v = )
+> int q | new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
+[x, 0]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> int v | v = 0 | while(v < 3) fork(print: v | v = ) | v = 
+> new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> int q
 Output: []
 Symbols:
-[a, (1, int)]
+[x, 0]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> int v | v = 0 | while(v < 3) fork(print: v | v = ) | v = 
+> new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> int q
 Output: []
 Symbols:
-[a, (1, int)]
+[x, 0]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> v = 0 | while(v < 3) fork(print: v | v = ) | v = 
-> int v
+> new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
+[x, 0]
+[q, 0]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> v = 0 | while(v < 3) fork(print: v | v = ) | v = 
-> int v
+> new(v1, 20) | new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
+[x, 0]
+[q, 0]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> v = 0 | while(v < 3) fork(print: v | v = ) | v = 
+> new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> new(v1, 20)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> v = 0 | while(v < 3) fork(print: v | v = ) | v = 
+> new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> new(v1, 20)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (0, int)]
+[v1, (0, int)]
 
 Files:
 
 Heap: 
-1->20
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 0
+> new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (0, int)]
+[v1, (1, int)]
 
 Files:
 
@@ -382,17 +373,16 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 0
+> new(v2, 30) | newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (0, int)]
+[v1, (1, int)]
 
 Files:
 
@@ -404,16 +394,17 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
+> newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> new(v2, 30)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (0, int)]
+[v1, (1, int)]
 
 Files:
 
@@ -425,16 +416,17 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
+> newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> new(v2, 30)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (0, int)]
+[v1, (1, int)]
 
 Files:
 
@@ -446,991 +438,2832 @@ Symbols:
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> fork(print: v | v = ) | v = 
+> newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> fork(print: v | v = ) | v = 
+> newLock(x) | fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-> fork(print: v | v = )
+> fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> newLock(x)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-> fork(print: v | v = )
+> fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> newLock(x)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 0]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
+> fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 1
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> print: v | v = 
+> fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)) | newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
+> newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x))
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 1
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> print: v | v = 
+> newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> fork(fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x))
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
+> newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 1
+ID: 5
 >>> Current State: 
 Execution Stack: 
-> v = 
-> print: v
+> fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
+> newLock(q) | fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 1
+ID: 5
 >>> Current State: 
 Execution Stack: 
-> v = 
-> print: v
+> fork(lock(x) | writeHeap(v1, ) | unlock(x)) | lock(x) | writeHeap(v1, ) | unlock(x)
 Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
 1->20
+2->30
 
 Symbols:
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
+> fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> newLock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> lock(x) | writeHeap(v1, ) | unlock(x)
+> fork(lock(x) | writeHeap(v1, ) | unlock(x))
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> newLock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> lock(x) | writeHeap(v1, ) | unlock(x)
+> fork(lock(x) | writeHeap(v1, ) | unlock(x))
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> lock(x) | writeHeap(v1, ) | unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> lock(x) | writeHeap(v1, ) | unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q) | [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> lock(x) | writeHeap(v1, ) | unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> lock(x) | writeHeap(v1, ) | unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> fork(lock(q) | writeHeap(v2, ) | unlock(q)) | lock(q) | writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> lock(q) | writeHeap(v2, ) | unlock(q)
+> fork(lock(q) | writeHeap(v2, ) | unlock(q))
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> lock(q) | writeHeap(v2, ) | unlock(q)
+> fork(lock(q) | writeHeap(v2, ) | unlock(q))
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> lock(q) | writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> unlock(x)
+> writeHeap(v1, )
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> lock(q) | writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> lock(q) | writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> unlock(x)
+> writeHeap(v1, )
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> lock(q) | writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->20
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+> unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+> lock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, -1]
+[1, 5]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 5
+>>> Current State: 
+Execution Stack: 
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v1, ) | unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> unlock(q)
+> writeHeap(v2, )
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> unlock(x)
+> writeHeap(v1, )
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> unlock(q)
+> writeHeap(v2, )
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> unlock(x)
+> writeHeap(v1, )
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->200
+2->30
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+> unlock(x)
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+> lock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 4]
+[1, 6]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 6
+>>> Current State: 
+Execution Stack: 
+Output: []
+Symbols:
+[x, 1]
+[q, 0]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> writeHeap(v2, ) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->300
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 > [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> fork(print: v | v = ) | v = 
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->300
 
 Symbols:
+[2, 7]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 1
+ID: 7
 >>> Current State: 
 Execution Stack: 
-> v = 
-Output: [0]
+> unlock(q)
+> writeHeap(v2, )
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->300
 
 Symbols:
+[2, 7]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 > [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> fork(print: v | v = ) | v = 
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->300
 
 Symbols:
+[2, 7]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 1
+ID: 7
 >>> Current State: 
 Execution Stack: 
-> v = 
-Output: [0]
+> unlock(q)
+> writeHeap(v2, )
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->300
 
 Symbols:
+[2, 7]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->305
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->305
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->305
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 7
+>>> Current State: 
+Execution Stack: 
+> unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->305
+
+Symbols:
+[2, 7]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 > [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-> fork(print: v | v = )
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 1
+ID: 7
 >>> Current State: 
 Execution Stack: 
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 0]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
+> [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 > [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-> fork(print: v | v = )
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
+> [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->305
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->305
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 > [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 2
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> print: v | v = 
-Output: [0]
-Symbols:
-[a, (1, int)]
-[v, 1]
-
-Files:
-
-Heap: 
-1->20
-
-Symbols:
-
-
-<--- STEP --->
-
-ID: 0
->>> Current State: 
-Execution Stack: 
+> [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 > [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 2
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> print: v | v = 
-Output: [0]
+> [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
+> [NoOp] | lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->305
+
+Symbols:
+[2, -1]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+> lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 > [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 2
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 
-> print: v
-Output: [0]
-Symbols:
-[a, (1, int)]
-[v, 1]
-
-Files:
-
-Heap: 
-1->20
-
-Symbols:
-
-
-<--- STEP --->
-
-ID: 0
->>> Current State: 
-Execution Stack: 
+> lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
 > [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-Output: [0]
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 2
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 
-> print: v
-Output: [0]
+> lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> fork(print: v | v = ) | v = 
-Output: [1, 0]
+> lock(x) | print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 2
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 
-Output: [1, 0]
+> print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> lock(x)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> fork(print: v | v = ) | v = 
-Output: [1, 0]
+> print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> lock(x)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 2
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 
-Output: [1, 0]
+> print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 1]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, 4]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-> fork(print: v | v = )
-Output: [1, 0]
+> print: readHeap(v1) | unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, 4]
 
 
 <--- STEP --->
 
-ID: 2
+ID: 4
 >>> Current State: 
 Execution Stack: 
-Output: [1, 0]
+> unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> print: readHeap(v1)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 20]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, 4]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-> fork(print: v | v = )
-Output: [1, 0]
+> unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+> print: readHeap(v1)
+Output: []
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, 4]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-Output: [1, 0]
+> unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, 4]
 
 
 <--- STEP --->
 
-ID: 3
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> print: v | v = 
-Output: [1, 0]
+> unlock(x) | lock(q) | print: readHeap(v2) | unlock(q)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, 4]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-> v = 
-Output: [1, 0]
+> lock(q) | print: readHeap(v2) | unlock(q)
+> unlock(x)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, 4]
 
 
 <--- STEP --->
 
-ID: 3
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> print: v | v = 
-Output: [1, 0]
+> lock(q) | print: readHeap(v2) | unlock(q)
+> unlock(x)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, 4]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-Output: [1, 0]
+> lock(q) | print: readHeap(v2) | unlock(q)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 3]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 3
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 
-> print: v
-Output: [1, 0]
+> lock(q) | print: readHeap(v2) | unlock(q)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-> while(v < 3) fork(print: v | v = ) | v = 
-Output: [1, 0]
+> print: readHeap(v2) | unlock(q)
+> lock(q)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 3]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 3
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 
-> print: v
-Output: [1, 0]
+> print: readHeap(v2) | unlock(q)
+> lock(q)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-Output: [2, 1, 0]
+> print: readHeap(v2) | unlock(q)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 3]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, 4]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 3
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 
-Output: [2, 1, 0]
+> print: readHeap(v2) | unlock(q)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, 4]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-> print: readHeap(a)
-Output: [2, 1, 0]
+> unlock(q)
+> print: readHeap(v2)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 3]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, 4]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 3
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> v = 
-Output: [2, 1, 0]
+> unlock(q)
+> print: readHeap(v2)
+Output: [199]
 Symbols:
-[a, (1, int)]
-[v, 2]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, 4]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 0
+ID: 4
 >>> Current State: 
 Execution Stack: 
-> [NoOp]
-Output: [20, 2, 1, 0]
+> unlock(q)
+Output: [305, 199]
 Symbols:
-[a, (1, int)]
-[v, 3]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, 4]
+[1, -1]
 
 
 <--- STEP --->
 
-ID: 3
+ID: 4
 >>> Current State: 
 Execution Stack: 
-Output: [20, 2, 1, 0]
+> unlock(q)
+Output: [305, 199]
 Symbols:
-[a, (1, int)]
-[v, 40]
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
 
 Files:
 
 Heap: 
-1->20
+1->199
+2->305
 
 Symbols:
+[2, 4]
+[1, -1]
+
+
+<--- STEP --->
+
+ID: 4
+>>> Current State: 
+Execution Stack: 
+Output: [305, 199]
+Symbols:
+[x, 1]
+[q, 2]
+[v2, (2, int)]
+[v1, (1, int)]
+
+Files:
+
+Heap: 
+1->199
+2->305
+
+Symbols:
+[2, -1]
+[1, -1]
 
 
 <--- STEP --->

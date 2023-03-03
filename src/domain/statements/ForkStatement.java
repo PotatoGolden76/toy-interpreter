@@ -16,7 +16,7 @@ public class ForkStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) throws StatementException, TypeException {
-        return new ProgramState(new Stack(), state.getSymbolTable().clone(), state.getOutput(), state.getFileTable(), state.getHeap(), statement);
+        return new ProgramState(new Stack(), state.getSymbolTable().clone(), state.getOutput(), state.getFileTable(), state.getHeap(), statement, state.getLockTable());
     }
 
     //Type Check

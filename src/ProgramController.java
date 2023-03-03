@@ -39,6 +39,15 @@ public class ProgramController {
     private TableColumn<Pair<Integer, IValue>, String> valueColumn;
 
     @FXML
+    private TableView<Pair<Integer, Integer>> lockTable;
+
+    @FXML
+    private TableColumn<Pair<Integer, Integer>, Integer> locationColumn;
+
+    @FXML
+    private TableColumn<Pair<Integer, Integer>, String> lockColumn;
+
+    @FXML
     private ListView<String> outputList;
 
     @FXML
@@ -67,6 +76,8 @@ public class ProgramController {
 
     @FXML
     public void initialize() {
+        locationColumn.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().first).asObject());
+        lockColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().second.toString()));
         addressColumn.setCellValueFactory(p -> new SimpleIntegerProperty(p.getValue().first).asObject());
         valueColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().second.toString()));
         symVariableColumn.setCellValueFactory(p -> new SimpleStringProperty(p.getValue().first));
@@ -115,6 +126,14 @@ public class ProgramController {
         populateOutput();
         populateSymbolTable();
         populateExecutionStack();
+        populateLockTable();
+    }
+
+    private void populateLockTable() {
+        ProgramState currentProgramState = getCurrentProgramState();
+        if (currentProgramState == null)
+            return;
+        lockTable.setItems(FXCollections.observableArrayList(currentProgramState.getLockTable().content().entrySet().stream().map(e -> new Pair<>(e.getKey(), e.getValue())).collect(Collectors.toList())));
     }
 
     private void populateHeap() {

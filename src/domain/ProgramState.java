@@ -34,7 +34,7 @@ public class ProgramState {
         nextId++;
     }
 
-    public ProgramState(Stack initialStack, SymbolDictionary clone, Queue output, FileDictionary fileTable, Heap heap, IStatement statement) throws TypeException {
+    public ProgramState(Stack initialStack, SymbolDictionary clone, Queue output, FileDictionary fileTable, Heap heap, IStatement statement, LockTable lt) throws TypeException {
         for(IStatement st : initialStack.getStack()) {
             this.typeTable = this.typeCheck(st, typeTable);
         }
@@ -46,6 +46,7 @@ public class ProgramState {
         this.heap = heap;
         this.executionStack.push(statement);
         this.id = nextId;
+        this.lockTable = lt;
         nextId++;
     }
 
